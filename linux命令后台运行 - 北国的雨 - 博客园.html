@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="referrer" content="origin" />
+<title>linux命令后台运行 - 北国的雨 - 博客园</title>
+<meta property="og:description" content="有两种方式： 1. command &amp; ： 后台运行，你关掉终端会停止运行 2. nohup command &amp; ： 后台运行，你关掉终端也会继续运行 一、 简介 Linux/Unix" />
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=giTNza-Of-PEt5UsELhFQAR7G6-bfaSa4oolcq7i9-o1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/BOOK/bundle-BOOK.css?v=qzznqq7AzRkoka6GRibxinoTgveiXem5TPZDQ_eQWN41"/>
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/BOOK/bundle-BOOK-mobile.css?v=2kvKmvRY2V7A8icv7UeoLCg33YxjDCYf0xhrzgD2C1k1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/lwm-1988/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/lwm-1988/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/lwm-1988/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">var currentBlogApp = 'lwm-1988', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=fobKU6DuMF7uNOMKEOEwhhLiN2dvU4IL2UfTDgUZOsY1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+<!--PageBeginHtml Block Begin-->
+<marquee>Welcom ,I hope yo will enjoy here!</marquee>
+<!--PageBeginHtml Block End-->
+
+<script type="text/javascript">
+	try {
+		if (screen.availWidth > 1200) {
+			document.getElementById("MainCss").href = '/Skins/BOOK/style2.css';
+		}
+	} catch (e) { }
+</script>
+
+<div id="header">
+<div id="HeaderTitle">
+<div id="Title">
+<a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/lwm-1988/">Rain_in_the_north country</a>
+</div>
+<div id="subTitle">北国的雨</div>
+</div>
+</div>
+
+<div id="main">
+	
+<div id="post_detail">
+	<div class="post">
+		<h2>
+			<a id="cb_post_title_url" href="https://www.cnblogs.com/lwm-1988/archive/2011/08/20/2147299.html">linux命令后台运行</a>
+		</h2>
+		<div id="cnblogs_post_body" class="blogpost-body"><p>&nbsp;&nbsp;<strong> 有两种方式：</strong></p>
+<p>&nbsp;&nbsp; 1. command &amp; ： 后台运行，你关掉终端会停止运行<br />&nbsp;&nbsp; 2. nohup command &amp; ：   后台运行，你关掉终端也会继续运行</p>
+<p><span style="font-family: courier new,courier;">&nbsp;&nbsp; <br /></span></p>
+<div id="app-share-content">
+<p><strong>一、 简介</strong> <br />
+&nbsp;&nbsp;&nbsp;  Linux/Unix 区别于微软平台最大的优点就是真正的多用户，多任务。因此在任务管理上也有别具特色的管理思想。<br />
+我们知道，在 Windows 上面，我们要么让一个程序作为服务在后台一直运行，要么停止这个服务。而不能让程序在前台后台之间切换。而 Linux 
+提供了 fg 和bg 命令，让你轻松调度正在运行的任务。假设你发现前台运行的一个程序需要很长的时间，但是需要干其他的事情，你就可以用 
+Ctrl-Z ，挂起这个程序，然后可以看到系统提示：<br />
+[1]+ Stopped /root/bin/rsync.sh<br />
+然后我们可以把程序调度到后台执行：（bg 后面的数字为作业号）<br />
+<strong>#bg 1</strong><br />
+[1]+ /root/bin/rsync.sh &amp;<br />
+用 jobs 命令查看正在运行的任务：<br />
+<strong>#jobs</strong><br />
+[1]+ Running /root/bin/rsync.sh &amp;<br />
+如果想把它调回到前台运行，可以用<br />
+<strong>#fg 1</strong><br />
+/root/bin/rsync.sh<br />
+这样，你在控制台上就只能等待这个任务完成了。</p>
+<p><strong>&amp;</strong> 将指令丢到后台中去执行<br />
+<strong>[ctrl]+z</strong> 將前台任务丟到后台中暂停<br />
+<strong>jobs</strong> 查看后台的工作状态<br />
+<strong>fg %jobnumber</strong> 将后台的任务拿到前台来处理<br />
+<strong>bg %jobnumber</strong> 将任务放到后台中去处理<br />
+<strong>kill</strong> 管理后台的任务</p>
+<p><strong>二、&amp;</strong></p>
+<p>在Linux中，当在前台运行某个作业时，终端被该作业占据；而在后台运行作业时，它不会占据终端。可以使用&amp;命令把作业放到后台执行。实际上，这样是将命令放入到一个作业队列中了：</p>
+<p>$ ./test.sh &amp;<br />
+[1] 17208</p>
+<p>$ jobs -l<br />
+[1]+ 17208 Running&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ./test.sh &amp;<br />
+&nbsp;&nbsp;&nbsp;  在后台运行作业时要当心：需要用户交互的命令不要放在后台执行，因为这样你的机器就会在那里傻等。不过，作业在后台运行一样会将结果输出到屏幕上，干扰你的工作。如果放在后台运行的作业会产生大量的输出，最好使用下面的方法把它的输出重定向到某个文件中：<br />
+<span style="background-color: #999999;">command &gt;out.file 2&gt;&amp;1 &amp;</span><br />
+在上面的例子中，<span style="color: #ff0000;">2&gt;&amp;1</span>表示所有的标准输出和错误输出都将被重定向到一个叫做out.file 的文件中。 当你成功地提交进程以后，就会显示出一个进程号，可以用它来监控该进程，或杀死它。 <br />
+例：查找名为&ldquo;httpd.conf&rdquo;的文件，并把所有标准输出和错误输出重定向到find.dt的文件中： <br />
+<span style="background-color: #999999;"># find /etc/httpd/ -name "httpd.conf" -print &gt;find.dt 2&gt;&amp;1 &amp;</span> <br />
+[2] 7832 <br />
+成功提交该命令之后，系统给出了它的进程号7832。 对于已经在前台执行的命令，也可以重新放到后台执行，首先按ctrl+z暂停已经运行的进程，然后使用bg命令将停止的作业放到后台运行，例如对正在前台执行的tesh.sh使用ctrl+z挂起它：<br />
+$ ./test.sh<br />
+[1]+ Stopped&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ./test.sh</p>
+<p>$ bg %1<br />
+[1]+ ./test.sh &amp;</p>
+<p>$ jobs -l<br />
+[1]+ 22794 Running&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ./test.sh &amp;</p>
+<p><span style="color: #38761d;" color="#38761d">但是如上方到后台执行的进程，其父进程还是当前终端shell的进程，而一旦父进程退出，则会发送hangup信号给所有子进程，子进程收到hangup以后也会退出。如果我们要在退出shell的时候继续运行进程，则需要使用nohup忽略hangup信号</span>，或者setsid将将父进程设为init进程(进程号为1)</p>
+<p>$ echo $$<br />
+21734</p>
+<p>$ nohup ./test.sh &amp;<br />
+[1] 29016</p>
+<p>$ ps -ef | grep test<br />
+515&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  29710 21734 0 11:47 pts/12&nbsp;&nbsp;  00:00:00 /bin/sh ./test.sh<br />
+515&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  29713 21734 0 11:47 pts/12&nbsp;&nbsp;  00:00:00 grep test<br />
+$ setsid ./test.sh &amp;<br />
+[1] 409</p>
+<p>$ ps -ef | grep test<br />
+515&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  410&nbsp;&nbsp;&nbsp;&nbsp;  1 0 11:49 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  00:00:00 /bin/sh ./test.sh<br />
+515&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  413 21734 0 11:49 pts/12&nbsp;&nbsp;  00:00:00 grep test<br />
+上面的试验演示了使用nohup/setsid加上&amp;使进程在后台运行，同时不受当前shell退出的影响。那么对于已经在后台运行的进程，该怎么办呢？可以使用disown命令：</p>
+<p>$ ./test.sh &amp;<br />
+[1] 2539</p>
+<p>$ jobs -l<br />
+[1]+ 2539 Running&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ./test.sh &amp;</p>
+<p>$ disown -h %1</p>
+<p>$ ps -ef | grep test<br />
+515&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  410&nbsp;&nbsp;&nbsp;&nbsp;  1 0 11:49 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  00:00:00 /bin/sh ./test.sh<br />
+515&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  2542 21734 0 11:52 pts/12&nbsp;&nbsp;  00:00:00 grep test<br />
+另外还有一种方法，即使将进程在一个subshell中执行，其实这和setsid异曲同工。方法很简单，将命令用括号() 括起来即可：</p>
+<p>$ (./test.sh &amp;)</p>
+<p>$ ps -ef | grep test<br />
+515&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  410&nbsp;&nbsp;&nbsp;&nbsp;  1 0 11:49 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  00:00:00 /bin/sh ./test.sh<br />
+515&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  12483 21734 0 11:59 pts/12&nbsp;&nbsp;  00:00:00 grep test<br />
+注：本文试验环境为Red Hat Enterprise Linux AS release 4 (Nahant Update 
+5),shell为/bin/bash，不同的OS和shell可能命令有些不一样。例如AIX的ksh，没有disown，但是可以使用nohup 
+-p PID来获得disown同样的效果。</p>
+<p>还有一种更加强大的方式是使用screen，首先创建一个断开模式的虚拟终端，然后用-r选项重新连接这个虚拟终端，在其中执行的任何命令，都能达到nohup的效果，这在有多个命令需要在后台连续执行的时候比较方便：</p>
+<p>$ screen -dmS screen_test</p>
+<p>$ screen -list<br />
+There is a screen on:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  27963.screen_test&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  (Detached)<br />
+1 Socket in /tmp/uscreens/S-jiangfeng.</p>
+<p>$ screen -r screen_test</p>
+<p><strong>三、 nohup <br />
+</strong>&nbsp;&nbsp;&nbsp;  如果你正在运行一个进程，而且你觉得在退出帐户时该进程还不会结束，那么可以使用nohup命令。该命令可以在你退出帐户之后继续运行相应的进程。nohup就是不挂起的意思( no hang up)。 该命令的一般形式为： <br />
+<span style="background-color: #999999;">nohup conmmand &amp;</span><br />
+如果使用nohup命令提交作业，那么在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：<br />
+<span style="background-color: #999999;">nohup command &gt; myout.file 2&gt;&amp;1 <br />
+</span>在上面的例子中，输出被重定向到myout.file文件中。</p>
+<p><br />
+<strong>四、.*，？，[...]，[!...]等</strong> <br />
+下面就是这些特殊字符： <br />
+* 匹配文件名中的任何字符串，包括空字符串。 <br />
+？ 匹配文件名中的任何单个字符。 <br />
+[...] 匹配[ ]中所包含的任何字符。 <br />
+[!...] 匹配[ ]中非感叹号！之后的字符。 <br />
+当s h e l l遇到上述字符时，就会把它们当作特殊字符，而不是文件名中的普通字符，这样用户就可以用它们来匹配相应的文件名。<br />
+<br />
+1)列出以i或o开头的文件名：&nbsp;&nbsp;&nbsp;&nbsp;  #ls [io]*<br />
+2)列出log.开头、后面跟随一个数字、然后可以是任意字符串的文件名： #ls log.[0-9]* <br />
+3)与例二相反，列出log.开头、后面不跟随一个数字、然后可以是任意字符串的文件名 : #ls log.[!0-9]* <br />
+4)列出所有以LPS开头、中间可以是任何两个字符，最后以1结尾的文件名：#ls LPS??1<br />
+5)列出所有以大写字母开头的文件名：$ ls [A-Z]* 6)列出所有以. 开头的文件名（隐含文件，例如. profile、.rhosts、.histo ry等）: $ ls .*</p>
+</div>
+<ul>
+<li>
+<h3><span style="font-family: courier new,courier;"><strong>其他相关命令：</strong></span><span style="font-family: courier new,courier;"><strong style="font-family: courier new,courier;"></strong></span></h3>
+</li>
+</ul>
+<p><span style="font-family: courier new,courier;"><strong>jobs</strong>：查看当前有多少在后台运行的命令</span><br /><span style="font-family: courier new,courier;">
+<strong>fg</strong>：将后台中的命令调至前台继续运行。如果后台中有多个命令，可以用 fg %jobnumber将选中的命令调出，%jobnumber是通过jobs命令查到的后台正在执行的命令的序号(不是pid)</span><br /><span style="font-family: courier new,courier;">
+<strong>bg</strong>：将一个在后台暂停的命令，变成继续执行。如果后台中有多个命令，可以用bg %jobnumber将选中的命令调出，%jobnumber是通过jobs命令查到的后台正在执行的命令的序号(不是pid)</span></p>
+<ul>
+<li>
+<h3><span style="font-family: courier new,courier;"><strong>杀死进程</strong></span></h3>
+</li>
+</ul>
+<p><span style="font-family: courier new,courier;">杀死已经启动的程序和普通方式一样：</span></p>
+<blockquote>
+<ul>
+<li><span style="font-family: courier new,courier;"><strong>pkill -9 <span style="color: #ff0000;">name</span></strong></span></li>
+<li><span style="font-family: courier new,courier;"><strong>killall <span style="color: #ff0000;">name</span></strong></span></li>
+<li><span style="font-family: courier new,courier;"><strong>kill <span style="color: #ff0000;">pid</span></strong></span></li>
+<li><span style="font-family: courier new,courier;"><strong>&hellip;</strong></span></li>
+</ul>
+</blockquote></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		<p class="postfoot">
+			posted on <span id="post-date">2011-08-20 17:54</span> <a href='https://www.cnblogs.com/lwm-1988/'>北国的雨</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=2147299" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(2147299);return false;">收藏</a>
+		</p>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=39066,cb_entryId=2147299,cb_blogApp=currentBlogApp,cb_blogUserGuid='fe41420b-63cf-dd11-9e4d-001cf0cd104b',cb_entryCreatedDate='2011/8/20 17:54:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+	</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<div id='cnblogs_c2' class='c_ad_block'>
+    <div id='div-gpt-ad-1539008685004-0' style='height:60px; width:468px;'>
+    <script>
+    if (new Date() >= new Date(2018, 9, 13)) {
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539008685004-0'); });
+    }
+    </script>
+    </div>
+</div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	
+<p id="footer">
+	Powered by: 
+	<br />
+	
+	<a id="Footer1_Hyperlink3" NAME="Hyperlink1" href="https://www.cnblogs.com/" style="font-family:Verdana;font-size:12px;">博客园</a>
+	<br />
+	Copyright &copy; 北国的雨
+</p>
+</div>
+<div id="rightmenu">
+	
+		<div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+		
+<h3>导航</h3>
+<ul>
+			<li><a id="blog_nav_sitehome" href="https://www.cnblogs.com/">博客园</a></li>
+			<li><a id="blog_nav_myhome" href="https://www.cnblogs.com/lwm-1988/">首页</a></li>
+			<li><a id="blog_nav_newpost" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+			<li><a id="blog_nav_contact" accesskey="9" rel="nofollow" href="https://msg.cnblogs.com/send/%E5%8C%97%E5%9B%BD%E7%9A%84%E9%9B%A8">联系</a></li>
+			<li><a id="blog_nav_rss" href="https://www.cnblogs.com/lwm-1988/rss">订阅</a><a id="blog_nav_rss_image" href="https://www.cnblogs.com/lwm-1988/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>
+			<li><a id="blog_nav_admin" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div id="blog_stats">
+<h3>统计</h3>
+	<ul>
+		<li>随笔 - 128
+		<li>文章 - 0
+		<li>评论 - 7
+		<li>引用 - 0
+	</li>
+</ul></div>
+		
+<h3>公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+
+		<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+	
+</div>
+			
+			
+			
+			
+			 
+
+	
+
+</body>
+</html>

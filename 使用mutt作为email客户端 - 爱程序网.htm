@@ -1,0 +1,270 @@
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>使用mutt作为email客户端 - 爱程序网</title>
+	<meta name="Keywords" content="Gmail,mutt,Linux,终端控,使用mutt作为email客户端" />
+	<meta name="Description" content="Allmailclientssuck.Thisonejustsucksless.由于mutt是一个有着unix哲学的程序，可定制性很强，其高级功能可以由不同的程序来完成，比如以下搭配：mutt使用mutt内建的imap" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel="dns-prefetch" href="//r.aichengxu.com" />
+	<meta name="mobile-agent" content="format=xhtml; url=http://m.aichengxu.com/linux/2383891.htm" />
+	<meta name="mobile-agent" content="format=html5; url=http://m.aichengxu.com/linux/2383891.htm" />      
+	<link type="text/css" rel="stylesheet" href="http://r.aichengxu.com/css/g.css" />
+	<script type="text/javascript" src="http://r.aichengxu.com/js/jquery.js"></script>	
+	<script type="text/javascript" src="http://r.aichengxu.com/js/main.js"></script>
+	<script type="text/javascript">helper.uaredirect("http://m.aichengxu.com/linux/2383891.htm");</script> 
+</head>
+<body>
+<div id="wrap">
+
+<div id="header">
+	<div class="logo">
+		<a href='http://www.aichengxu.com'><img width="311" height="48" alt="爱程序网" src="http://r.aichengxu.com/image/logo.png" /></a>
+	</div>
+	<div class="search">
+		<form target='_blank'>           
+			<div class="search-ipt"><input id="bdcsMain" type="text" value=""  /></div>
+			<div class="search-btn"><input type="submit" value="搜索" class="sub-btn" /></div>
+	    </form>
+	</div>
+</div>
+<div id="nav">
+	<ul>
+		<li><a  href="http://www.aichengxu.com" >首页</a></li>
+			<li><a href="http://www.aichengxu.com/php/">PHP技术</a></li>
+			<li><a href="http://www.aichengxu.com/java/">JAVA技术教程</a></li>
+			<li><a href="http://www.aichengxu.com/aspnet/">ASP.NET技术教程</a></li>
+			<li><a href="http://www.aichengxu.com/cyvyan/">C语言&C++</a></li>
+			<li><a href="http://www.aichengxu.com/htmlcss/">HTML/CSS</a></li>
+			<li><a href="http://www.aichengxu.com/javascript/">JavaScript技术</a></li>
+			<li><a href="http://www.aichengxu.com/seo/">SEO知识</a></li>
+			<li><a href="http://www.aichengxu.com/mysql/">Mysql技术教程</a></li>
+		<li>   <a class="nav-more">更多</a>   <b class="verify-b"></b>   
+		<div class="drop-sub-nav" style="display:none;">
+			<a href="http://www.aichengxu.com/diannao/">电脑基础知识</a>
+			<a href="http://www.aichengxu.com/thinkphp/">ThinkPHP框架知识</a>
+			<a href="http://www.aichengxu.com/python/">Python技术</a>
+			<a href="http://www.aichengxu.com/android/">Android开发技术</a>
+			<a href="http://www.aichengxu.com/ios/">IOS开发技术</a>
+			<a href="http://www.aichengxu.com/linux/">Linux技术知识</a>
+			<a href="http://www.aichengxu.com/apache/">Apache技术知识</a>
+			<a href="http://www.aichengxu.com/nginx/">nginx技术知识</a>
+			<a href="http://www.aichengxu.com/cate/">专辑收藏</a>
+		</div>
+		</li>                
+	</ul>
+</div>           
+<div class='top-nav-ad'>
+    <script type="text/javascript">adsense.common.ad1();</script>
+</div> 
+<div id="user-loc">当前位置：<a href="http://www.aichengxu.com">首页</a> &raquo; <a href="http://www.aichengxu.com/linux/">Linux技术知识</a></div>
+<div id="post">
+	<div class="post-left">   
+		<div class="post-detail">
+			<h1>使用mutt作为email客户端</h1>
+			<div class="p-info">
+				<span class="p-time">2014-07-07 21:08</span>
+				<span class="p-author">本站整理</span>
+				<span class="p-view">浏览(12)</span>
+			</div>
+			<div class="p-text">
+				<!--div id="ad-left"><script type="text/javascript">adsense.detail.ad1();</script></div-->
+				All mail clients suck.This one just sucks less.<br/>由于<a href="http://www.mutt.org/" target=_blank>mutt</a>是一个有着unix哲学的程序，可定制性很强，其高级功能可以由不同的程序来完成，比如以下搭配：<br/> mutt <br/>使用mutt内建的imap，pop，smtp支持，最简单的方式，只需要安装mutt这一个软件包。<br/> mutt + msmtp <br/>最简单的组合，配合imap协议，可以满足大多数人的要求 <br/>其中smtp功能由msmtp实现，你甚至可以把imap功能也由其他软件来实现<br/> mutt + msmtp + getmail + procmail <br/>稍微复杂一点的组合，mutt是客户端，msmtp作为mta，getmail用来收取邮件，procmail过滤邮件。 <br/>mta还可以使用exim4或者postfix替代，一般使用msmtp就够了，因为postfix实在是太好了，邮件服务器通常会选择postfix。 <br/>msmtp可以使用esmtp替代。 <br/>邮件收取功能也可以使用fetchmail替代getmail，由于需要本地mta投递，所以同时需要procmail。 <br/>procmail是一个功能及其强大的邮件过滤系统。ps:看到这句话，你就应该明白，我显然没有使用它。。。<br/>由于Gmail服务器端垃圾邮件过滤已经做得很好了，而且我使用的是imap协议，所以不需要getmail去收取邮件，目前也没有必要自己再去配置procmail的过滤系统。 <br/>本文将对mutt + msmtp的配置进行说明<br/><h2>安装mutt和msmtp</h2><h2>一般发行版</h2>mutt和msmtp已经包含在大多数发行版的软件源里，直接使用包管理器安装,其他发行版以此类推:<br/><pre class='brush:plain;'>$ sudo apt-get insatll mutt msmtp    #适用于debian系
+$ sudo yum insatll mutt msmtp    #适用于red hat系</pre> <br/><h2>Gentoo Linux下安装</h2><pre class='brush:plain;'>$ echo "mail-client/mutt -berkdb gpg imap mbox nntp sasl sidebar slang smime smtp" &gt;&gt; /etc/portage/package.use    # 设置mutt的use flag
+$ echo "mail-mta/msmtp sasl"    # 设置msmtp的use flag
+$ emerge -av mutt msmtp    # 安装mutt和msmtp</pre> <br/><h2>配置mutt</h2><h2>创建并编辑~/.muttrc</h2>把username替换为你的Gmail用户名，passwd替换为密码<br/><pre class='brush:plain;'># 设置发信地址和用户名
+set from = "username@gmail.com"
+set realname = "username"
+set use_from = yes
+
+# 设置Gmail帐户和密码
+set imap_user = "username@gmail.com"
+set imap_pass = "your password"
+
+# 设置远程服务器文件夹
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+mailboxes = +INBOX
+set postponed = "+[Gmail]/Drafts"
+
+# 允许mutt自动创建一个新的imap连接
+unset imap_passive
+
+# imap连接保持时间
+set imap_keepalive = 300
+
+# 检查新邮件间隔时间
+set mail_check = 120
+
+# 本地缓存目录
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+
+# 设置TLS验证
+set certificate_file = /etc/ssl/certs/ca-certificates.crt
+
+# 设置内建smtp,这里我们不使用
+#set smtp_url = "smtps://username@gmail.com@smtp.gmail.com:465/"
+#set smtp_pass = "your password"
+#set ssl_starttls = yes
+
+# 使用msmtp
+set sendmail = "/usr/bin/msmtp"
+
+# 不保存发送的邮件
+unset record
+
+# 回信不包含邮件头
+set header = no
+
+# 退出提醒
+set quit = ask-yes
+
+# 回信包含原文
+set include
+
+# 设置回信引文之前的插入符号
+set indent_str = "&gt; "
+
+# 设置邮件头
+my_hdr From: username@gmail.com
+
+# 邮件打分
+score "~N" +4
+score "~s 通知" +2
+score "~D" -5
+score "~O" +1
+score "~s believe" -10
+
+# 排序方式
+set sort = score
+
+# 二级排序
+set sort_aux = date
+
+# 翻到最后一页不回到第一页
+set pager_stop
+
+# 快速回信
+set fast_reply
+
+# 删除邮件自动移动光标
+set resolve = yes
+
+# 设置编码，保持和终端一致
+set charset = "utf-8"
+
+# 发信使用的字符集
+set send_charset = "us-ascii:iso-8859-1:gb18030:utf-8"
+
+# 是否编辑邮件头
+set edit_headers = no
+
+# pager显示行数
+set pager_index_lines = 4
+
+# 告知mutt哪些是邮件列表
+subscribe ustc_lug@googlegroups.com
+subscribe shlug@googlegroups.com
+subscribe gentoo-user@lists.gentoo.org
+
+# 使用solarized配色方案
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc</pre> <br/>编辑好后保存退出。<br/>修改~/.muttrc的权限<br/><pre class='brush:plain;'>$ chmod 700 ~/.muttrc</pre> <br/>创建本地文件夹<br/><pre class='brush:plain;'>$ mkdir -p ~/.mutt/cache</pre> <br/><h2>配置msmtp</h2>创建或修改~/.msmtprc<br/><pre class='brush:plain;'># Accounts will inherit settings from this section
+defaults
+auth             on
+tls              on
+tls_trust_file   /usr/share/ca-certificates/mozilla/Thawte_Premium_Server_CA.crt
+logfile ~/.mutt/msmtp.log
+
+# Gmail account
+account gmail
+host smtp.gmail.com
+port 465
+from username@gmail.com
+user username@gmail.com
+password password
+tls_starttls off
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+
+# set default account
+account default : gmail</pre> <br/>保存退出，并设置权限<br/><pre class='brush:plain;'>$ chmod 600 ~/.msmtprc</pre> <br/><h2>配置mutt使用<a href="http://ethanschoonover.com/solarized" target=_blank>solarized</a>配色方案</h2><pre class='brush:plain;'>$ git clone<a href='https://github.com/altercation/mutt-colors-solarized.git' target='_blank'>https://github.com/altercation/mutt-colors-solarized.git</a> ~/.mutt/mutt-colors-solarized</pre> <br/>然后在~/.muttrc中修改相应配置<br/><h2>大功告成，终端启动</h2><pre class='brush:plain;'>$ mutt</pre> <br/>如无例外你将看到: <br/><img src="http://my.oschina.net/action/blog/img_proxy?url=http%3A%2F%2Fibrother.qiniudn.com%2Fmutt.png" border="0" ><br/><h2>注意事项</h2>Gmail启用了两步验证需要为mutt设置应用专用密码<br/><h2>参考网站</h2><a href="http://mingxinglai.com/cn/2012/11/send-mail-with-mutt-in-fedora--ubuntu/" target=_blank>傻瓜式配置mutt|赖明星</a><br/> <a href="http://docs.huihoo.com/homepage/shredderyin/mutt_frame.html" target=_blank>mutt使用指南-王垠</a><br/> <a href="http://home.ustc.edu.cn/~lixuebai/GNU/MuttConfig.html" target=_blank>配置mutt做邮件客户端</a><br/> <a href="https://wiki.archlinux.org/index.php/Mutt" target=_blank>Mutt-ArchWiki</a><br/> <a href="https://wiki.gentoo.org/wiki/Mutt" target=_blank>Mutt-Gentoowiki</a><br/> <a href="http://xhc.me/wp-content/uploads/mutt/manual_1.5.19_zh.html" target=_blank>Mutt中文手册</a><br/> <a href="https://ibrother.me/2014/07/07/Use-email-with-mutt/" target=_blank>我的博客</a>
+				<div class="tags"><a href="http://www.aichengxu.com/tag/Gmail/">Gmail</a><a href="http://www.aichengxu.com/tag/mutt/">mutt</a><a href="http://www.aichengxu.com/tag/Linux/">Linux</a><a href="http://www.aichengxu.com/tag/终端控/">终端控</a></div>
+			</div>
+			<div class="ad-under"><script type="text/javascript">adsense.detail.ad2();</script></div>
+			<div class="connect">
+				<i class="connect-left"></i>
+				<i class="connect-right"></i>
+			</div>
+			<div class="p-extra">
+            	<h3>猜你在找</h3>
+            	<ul>
+					<li><a href="http://www.aichengxu.com/linux/407135.htm">grep如何忽略过滤.svn目录以及如何忽略多个目录</a></li>
+					<li><a href="http://www.aichengxu.com/linux/323159.htm">centos 用户相关的命令</a></li>
+					<li><a href="http://www.aichengxu.com/php/319588.htm">开始学习Linux的一些建议</a></li>
+					<li><a href="http://www.aichengxu.com/linux/387737.htm">Linux查看系统日志的一些常用命令总结</a></li>
+					<li><a href="http://www.aichengxu.com/linux/387762.htm">Linux系统内存不够用怎么办？释放Linux内存的教程</a></li>
+					<li><a href="http://www.aichengxu.com/linux/319704.htm">为什么Linux中要用字符~来表示home目录</a></li>
+					<li><a href="http://www.aichengxu.com/linux/329551.htm">2014年Linux界发生的好事、坏事和丑事</a></li>
+					<li><a href="http://www.aichengxu.com/linux/387800.htm">Linux系统中定时运行命令使用介绍附实例</a></li>
+					<li><a href="http://www.aichengxu.com/linux/422513.htm">14 个 Linux grep 命令的例子</a></li>
+					<li><a href="http://www.aichengxu.com/php/410991.htm">11个让你吃惊的 Linux 终端命令</a></li>
+					<li><a href="http://www.aichengxu.com/linux/422911.htm">5个经典有趣的 Linux 命令行技巧</a></li>
+					<li><a href="http://www.aichengxu.com/linux/422895.htm">linux、unix下快速清空文件的方法</a></li>
+					<li><a href="http://www.aichengxu.com/linux/426632.htm">Linux Ctrl+Z的使用方法</a></li>
+					<li><a href="http://www.aichengxu.com/linux/426964.htm">在Linux系统中使用tar命令压缩和解压文件的教程</a></li>
+					<li><a href="http://www.aichengxu.com/linux/433207.htm">Linux中，创建聊天服务器、移除冗余软件包的实用命令</a></li>
+					<li><a href="http://www.aichengxu.com/linux/433209.htm">Linux中7个用来浏览网页和下载文件的命令</a></li>
+					<li><a href="http://www.aichengxu.com/linux/324651.htm">新手学堂：Linux操作系统下的软件安装包</a></li>
+					<li><a href="http://www.aichengxu.com/linux/324659.htm">新手学堂：认识Linux的挂载分区表fstab</a></li>
+					<li><a href="http://www.aichengxu.com/other/3591079.htm">使用 Mutt Email 客户端管理你的 Gmail</a></li><li><a href="http://www.aichengxu.com/other/5274414.htm">mutt邮件客户端</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="post-right">     
+        <div id="side-box">
+            <h3>阅读榜</h3>
+            <ul>
+			<li><span class="list-num hot-num hot-1">1</span><a href="http://www.aichengxu.com/linux/11086629.htm">Ubuntu 16.04 使用ShadowSocks + Privoxy 科学上网</a></li>
+			<li><span class="list-num hot-num hot-2">2</span><a href="http://www.aichengxu.com/linux/407135.htm">grep如何忽略过滤.svn目录以及如何忽略多个目录</a></li>
+			<li><span class="list-num hot-num hot-3">3</span><a href="http://www.aichengxu.com/linux/387744.htm">Linux中使用curl命令访问https站点4种常见错误和解决方法</a></li>
+			<li><span class="list-num hot-num hot-4">4</span><a href="http://www.aichengxu.com/linux/389844.htm">ubuntu出现有线已连接却无法上网的解决方法(ubuntu连不上网)</a></li>
+			<li><span class="list-num hot-num hot-7">7</span><a href="http://www.aichengxu.com/linux/2445583.htm">40 个重要的 HTML5 面试题及答案</a></li>
+			<li><span class="list-num hot-num hot-8">8</span><a href="http://www.aichengxu.com/linux/5447206.htm">Linux 系统下查看硬件信息命令大全</a></li>
+			<li><span class="list-num hot-num hot-9">9</span><a href="http://www.aichengxu.com/linux/389695.htm">Ubuntu安装WPS后提示缺失字体导致公式乱码</a></li>
+			<li><span class="list-num hot-num hot-10">10</span><a href="http://www.aichengxu.com/linux/1010397.htm">Linux man命令（一）：如何看懂man手册</a></li>
+			<li><span class="list-num hot-num hot-11">11</span><a href="http://www.aichengxu.com/linux/1575422.htm">proc_create实践（linux用户空间和内核空间交互之二）</a></li>
+			<li><span class="list-num hot-num hot-12">12</span><a href="http://www.aichengxu.com/linux/2442101.htm">首个 C++ 编译器诞生 30 周年了，来听听 C++ 之父畅谈 C++</a></li>
+			<li><span class="list-num hot-num hot-13">13</span><a href="http://www.aichengxu.com/linux/883566.htm">配置torch,luarocks 在linux下</a></li>
+			<li><span class="list-num hot-num hot-14">14</span><a href="http://www.aichengxu.com/linux/2464215.htm">Torch基础学习（一）</a></li>
+			<li><span class="list-num hot-num hot-15">15</span><a href="http://www.aichengxu.com/linux/389700.htm">Ubuntu关机卡住无法关机的解决方法</a></li>
+			</ul>
+			<div class="ad300"><script type="text/javascript">adsense.detail.ad3();</script></div>
+        </div>
+    </div>    
+</div>
+<script type="text/javascript">
+    //右侧浮动
+    fixFloat("side-box");
+</script>
+<script type="text/javascript">ac('21', '2383891');</script>
+
+<div id="footer">
+	<p>Copyright&nbsp;&copy;&nbsp;2011-2015&nbsp;&nbsp;爱程序网&nbsp;&nbsp;沪ICP备14001972号-1&nbsp;&nbsp;
+	业务咨询：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1658522921&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:1658522921:51" alt="业务咨询" title="业务咨询"/></a> &nbsp;&nbsp;</p>
+</div>
+<script type="text/javascript">menuDrop();</script>
+<!--Baidu Search-->
+<script type="text/javascript">
+		/*内文搜索*/
+		var cpro_id = "u2051930";
+	</script>
+	<script src="http://cpro.baidustatic.com/cpro/ui/cnw.js" type="text/javascript"></script>
+<!--站内搜索-->
+<script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=13701196898887196136' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+<div style='display:none;'><script type="text/javascript"> try { third.do(); } catch (e) {} </script></div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="referrer" content="origin" />
+<title>ubuntu下使用mutt+msmtp发送邮件 - 生活费 - 博客园</title>
+<meta property="og:description" content="因为毕业设计的关系，每天需要多次备份文件，所做操作比较机械化，所以就想在shell下自动帮我备份文件，开始想使用mail命令但是mail命令发邮件需要开启sendmail服务，我只是一台客户端，开个s" />
+<link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=giTNza-Of-PEt5UsELhFQAR7G6-bfaSa4oolcq7i9-o1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/ClearGertrude/bundle-ClearGertrude.css?v=nXd7A2mXPlCDquT0Fv2noIJmYNlG9k_aSdW4dtprbvg1"/>
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/ClearGertrude/bundle-ClearGertrude-mobile.css?v=roux_kUKDa1PX8NxgWpXqzUWKOfwm-QAmCPsxWiSnHQ1"/>
+<link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/276815076/rss"/>
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/276815076/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/276815076/wlwmanifest.xml"/>
+<script src="//common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">var currentBlogApp = '276815076', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="/bundles/blog-common.js?v=fobKU6DuMF7uNOMKEOEwhhLiN2dvU4IL2UfTDgUZOsY1" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<div id="header">
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/276815076/">求知</a></h1>
+<p id="tagline"></p></div>
+<div id="main">
+	
+<div id="post_detail">
+	<div class="post">
+		<h2>
+			<a id="cb_post_title_url" href="https://www.cnblogs.com/276815076/archive/2011/10/11/2207214.html">ubuntu下使用mutt+msmtp发送邮件</a>
+		</h2>
+		<div class="postText"><div id="cnblogs_post_body" class="blogpost-body"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 因为毕业设计的关系，每天需要多次备份文件，所做操作比较机械化，所以就想在shell下自动帮我备份文件，开始想使用mail命令但是mail命令发邮件需要开启sendmail服务，我只是一台客户端，开个sendmail没有必要，于是乎，在网上找了好久，才发现mutt是个好东西。</p>
+<div id="app-share-content">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在ubuntu下安装mutt很方便，只需要sudo apt-get install mutt，另外需要安装msmtp，一个发邮件的小工具，sudo apt-get insall msmtp。这两个文件都很小，一下子就装完了。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 接下来是配置文件，也很简单，这里我引用网上别人的配置和命令行。另外在文件的最后，附上一个脚本文件，是通过发送电子邮件自动备份。</p>
+<p>=====================================引用================================</p>
+<p><span style="font-size: x-small;" size="2"><strong>MUTT<br /></strong>系统全局设置/etc/Muttrc,如果使用某个系统用户，可以在~/.muttrc中设置。<br /><br />vi .muttrc<br />set sendmail="/usr/bin/msmtp"<br />set use_from=yes<br />set realname="FengYuBin"<br />set </span><a href="mailto:from=fyb@163.com"><span style="color: #1463c4; font-size: x-small;" size="2" color="#1463c4">from=fyb@163.com</span></a><br /><span style="font-size: x-small;" size="2">set envelope_from=yes</span></p>
+<div></div>
+<div><span style="font-size: x-small;" size="2"><strong>MSMTP<br /></strong>创建~/.msmtprc和~/.msmtp.log,分别为配置和日志文件。<br />vi .msmtprc<br /><br />account default<br />host smtp.163.com</span>
+<div><span style="font-size: x-small;" size="2">from <a href="mailto:fyb@163.com"><span style="color: #1463c4;" color="#1463c4">fyb@163.com</span></a><br />auth plain</span></div>
+<div><span style="font-size: x-small;" size="2">user</span> <span style="font-size: x-small;" size="2">fyb</span></div>
+<div><span style="font-size: x-small;" size="2">password 123456</span></div>
+<div><span style="font-size: x-small;" size="2">logfile ~/.msmtp.log</span></div>
+<div></div>
+<div><span style="font-size: x-small;" size="2">由于password是明码，所以我们需要修改此文件的权限。<br />chmod 600 .msmtprc</span></div>
+<div><span style="font-size: x-small;" size="2">touch ~/.msmtp.log</span></div>
+<div></div>
+<div>查看SMTP服务器是否支持认证的TLS加密：</div>
+<div>[oracle@oracle ~]$ msmtp --host=smtp.163.com --serverinfo<br />SMTP server at smtp.163.com (m5-86.163.com [202.108.5.86]), port 25:<br />&nbsp;&nbsp;&nbsp; 163.com Anti-spam GT for Coremail System (163com[20050206])<br />Capabilities:<br />&nbsp;&nbsp;&nbsp; PIPELINING:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Support for command grouping for faster transmission<br />&nbsp;&nbsp;&nbsp; AUTH:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Supported authentication methods:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PLAIN LOGIN</div>
+<div></div>
+<div><span style="font-size: x-small;" size="2">到这里，你可以使用mutt来发送邮件了，我们测试一下。<br />echo "test" |mutt -s "my_first_test"</span> <a href="mailto:fyb@gmail.com"><span style="color: #000000; font-size: x-small;" size="2" color="#000000">fyb@gmail.com</span></a></div>
+</div>
+<div><span style="font-size: x-small;" size="2">-s "subject"<br />-c "carbon-copy"<br />echo "test" |mutt -a dbms_stats.txt -s my_first_test <a href="mailto:fyb@gmail.com"><span style="color: #1463c4;" color="#1463c4">fyb@gmail.com</span></a></span></div>
+<div></div>
+<div>
+<p><span style="font-size: x-small;" size="2">echo -e "文字描述,可以带参数$allname" | mutt -a "附件(写好路径)" -a "附件2(写好路径)"&nbsp;&nbsp; aa@163.com,bb@yahoo.com.cn(收信人) -c <a href="mailto:cc@163.com,dd@163.com"><span style="color: #1463c4;" color="#1463c4">cc@163.com,dd@163.com</span></a>(抄送)<br />观察.msmtp.log文件，如果有错会在日志文件中被报告出来，当然，成功发送的日志也会出现在此日志文件内。<br />到这里发送邮件的过程已经全部完成，接下来要做的事就简单了，我们假设每天凌晨定时发送信件给公司某用户，可以编写脚本处理。<br />mail.sh<br /><br />#!/bin/sh<br />content="you can tell your colleague what something to do at tomorrow"<br />echo "$content" |mutt -s "hi Jacky" Jacky's_email<br /><br />OK，上面这些就是我实现自动发送邮件的全部过程，怎么样，很轻松吧！</span></p>
+<p>=================================下面是我脚本文件=======================</p>
+<p><span style="background-color: #ffffff; color: #ff0000;"><span color="#00ff00">#!/bin/bash<br />cd<br />fileName=bak\($(date +%Y%m%d%H%M)\).zip #产生文件名<br />zip $fileName -r fw2 #将需要备份的目录fw2打包<br />sleep 1 #睡眠一秒，让zip打包完成的文件写入硬盘<br />echo "Sending mail..."<br />#调用mutt发送文件<br />echo "firewall code src backup" | mutt -s "$fileName" </span><a href="mailto:springtty@163.com"><span style="background-color: #ffffff; color: #ff0000;" color="#00ff00">springtty@163.com</span></a><span color="#00ff00"> -a "$fileName" <br />echo "Sent OK"</span></span></p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></div>
+<div><span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p>=============================================================================================</p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p><span style="background-color: #ffffff; color: #000000;">Ubuntu 命令行发送邮件的方法很多，如果Google一下，可以找到象mailx，mutt，nail等邮件客户端。但是安装以后，尝试通过它们放送邮件到 Gmail或者Hotmail，却得到&ldquo;Mailing to remote domains not supported&rdquo;的错误信息。认真研究一下，发现问题出在我的Ubuntu缺少完善的邮件服务器(MTA)。可是我的Ubuntu挂在自家的局域网上，没有固定IP，要搭建一个功能完善的邮件服务器估计不是很容易。(P.S.我在<a href="http://www.61dh.com/blog/2008/10/linux.html"><span style="background-color: #ffffff; color: #000000;">常用的Linux命令集</span></a>一文里介绍了如何在命令行发送邮件，但是这适合于与安装有邮件服务器的终端，要不然的话，就只可以在本地内发送) 但是我想或许可以通过Gmail在命令行上发送邮件，上网Google了一下，终于找到了一个和我有相同问题的人，不同的是他还提供了详细的<a href="http://phosphorusandlime.blogspot.com/2008/05/ubuntu-command-line-email.html" target="_blank"><span style="background-color: #ffffff; color: #000000;">解决方案</span></a>。很简单只需照猫画虎，就可以实现从命令行发送邮件到远端了。原文是英文的，我稍作翻译如下，希望对一些人有所帮助。</span></p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p><span style="background-color: #ffffff; color: #000000;">1. 安装所需的软件</span></p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre> </pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ sudo apt-get install msmtp</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ sudo apt-get install nail</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p><span style="background-color: #ffffff; color: #000000;">2. 安装Gamil的Thawte证书</span></p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre> </pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ mkdir -p ~/etc/.certs</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ chmod 0700 ~/etc/.certs</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ cd ~/etc/.certs</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ wget https://www.verisign.com/support/thawte-roots.zip --no-check-certificate </span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ unzip thawte-roots.zip</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ cp Thawte\ Server\ Roots/ThawtePremiumServerCA_b64.txt ThawtePremiumServerCA.crt</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p><span style="background-color: #ffffff; color: #000000;">3. 配置msmtp，我是用Vim打开的，原文使用gedit</span></p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre> </pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ gedit ~/.msmtprc</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> 或者：</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ vim ~/.msmtprc</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p><span style="background-color: #ffffff; color: #000000;">这将打开一个空白文档，你只需把下面<strong>大写部分</strong>改为你的个人设置后粘帖即可。<strong>因为我只想使用gmail account，所以我没有设置isp account，并且把account default改为gmail。别忘了改&ldquo;USER&rdquo;！！！</strong></span></p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre> </pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> # config options: http://msmtp.sourceforge.net/doc/msmtp.html#A-user-configuration-file </span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> defaults</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> logfile /tmp/msmtp.log</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> # isp account</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> account isp</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> auth login</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> host SMTP.YOURISP.COM</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> port 25</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> user YOURNAME@ISP.COM</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> from YOURNAME@ISP.COM</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> password *****</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> # gmail account</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> account gmail</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> auth on</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> host smtp.gmail.com</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> port 587</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> user YOURNAME@gmail.com</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> password *****</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> from YOURNAME@gmail.com</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> tls on</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> tls_trust_file /home/USER/etc/.certs/ThawtePremiumServerCA.crt</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> # set default account to use (from above)</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> account default : isp</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> # 注意：我把默认改为 gmail</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p><span style="background-color: #ffffff; color: #000000;">4. 更改msmtprc文件的许可</span></p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre> </pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ chmod 600 ~/.msmtprc</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p><span style="background-color: #ffffff; color: #000000;">5. 配置nail，我是用Vim打开的，原文使用gedit</span></p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre> </pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ gedit ~/.mailrc</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> 或者</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ vim ~/.mailrc</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p><span style="background-color: #ffffff; color: #000000;">这将打开一个空白文档，你只需把下面大写部分改为你的个人设置后粘帖即可。<strong>因为我只想使用gmail account，所以我没有设置isp account。</strong></span></p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre> </pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> # set smtp for nail</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> # ref: http://ubuntuforums.org/showpost.php...94&amp;postcount=6 </span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> # docs: http://msmtp.sourceforge.net/doc/msm...guration-files </span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> # isp account (default)</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> # $ nail -s "subject line" -a /path/file recipient@email.com &lt; /path/body.txt</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> set from="YOURNAME@ISP.COM"</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> set sendmail="/usr/bin/msmtp"</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> set message-sendmail-extra-arguments="-a isp"</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> # gmail account</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> # $ nail -A gmail -s "subject line" -a /path/file recipient@email.com &lt; /path/body.txt</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> account gmail {</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> set from="YOURNAME@gmail.com (YOURNAME)"</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> set sendmail="/usr/bin/msmtp"</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> set message-sendmail-extra-arguments="-a gmail"</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> }</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p><span style="background-color: #ffffff; color: #000000;"><strong>搞定！！！</strong></span></p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p><span style="background-color: #ffffff; color: #000000;">发送测试：</span></p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre> </pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ echo -e "testing email from the command line" &gt; /tmp/test_email</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<pre><span style="background-color: #ffffff; color: #000000;"> $ nail -A gmail -s "gmail test" YOURNAME@gmail.com &lt; /tmp/test_email</span></pre>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p><span style="background-color: #ffffff; color: #000000;">Log文件在：/tmp/msmtp.log</span></p>
+<span style="background-color: #000000; color: #00ff00;" color="#00ff00"><span style="background-color: #000000; color: #00ff00;" color="#00ff00"></span></span>
+<p><br />&nbsp;</p>
+</div>
+</div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+</div>
+		<p class="postfoot">
+			posted on <span id="post-date">2011-10-11 13:45</span> <a href='https://www.cnblogs.com/276815076/'>生活费</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=2207214" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(2207214);return false;">收藏</a>
+		</p>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=71561,cb_entryId=2207214,cb_blogApp=currentBlogApp,cb_blogUserGuid='132c5bbe-956c-df11-ba8f-001cf0cd104b',cb_entryCreatedDate='2011/10/11 13:45:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+	</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<div id='cnblogs_c1' class='c_ad_block'></div>
+<div id='under_post_news'></div>
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+
+<script>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+</script>
+<div id='cnblogs_c2' class='c_ad_block'>
+    <div id='div-gpt-ad-1539008685004-0' style='height:60px; width:468px;'>
+    <script>
+    if (new Date() >= new Date(2018, 9, 13)) {
+        googletag.cmd.push(function() { googletag.display('div-gpt-ad-1539008685004-0'); });
+    }
+    </script>
+    </div>
+</div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+</div>
+<div id="rightmenu">
+	
+		
+<h3>导航</h3>
+<ul>
+<li><a id="blog_nav_sitehome" href="https://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" href="https://www.cnblogs.com/276815076/">首页</a></li>
+<li><a id="blog_nav_newpost" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" accesskey="9" rel="nofollow" href="https://msg.cnblogs.com/send/%E7%94%9F%E6%B4%BB%E8%B4%B9">联系</a></li>
+<li><a id="blog_nav_rss" href="https://www.cnblogs.com/276815076/rss">订阅</a><a id="blog_nav_rss_image" href="https://www.cnblogs.com/276815076/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a></li>
+<li><a id="blog_nav_admin" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		
+<h3>公告</h3>
+<div class="newsItem">
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>					
+		<div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+		<div id="blog_stats">
+<h3>统计</h3>
+<ul>
+	<li>随笔 - 277</li>
+	<li>文章 - 0</li>
+	<li>评论 - 6</li>
+	<li>引用 - 0</li>
+ </ul></div>
+		<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+		
+<div id="footer">
+	Powered by: 
+	<br />
+	<a id="Footer1_Hyperlink3" href="https://www.cnblogs.com/" style="font-family:Verdana;font-size:12px;">博客园</a>
+	<br />
+	Copyright &copy; 生活费
+</div>
+	
+</div>			
+			
+	
+
+</body>
+</html>
